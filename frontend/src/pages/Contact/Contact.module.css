@@ -1,0 +1,482 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   src/pages/Contact/Contact.module.css
+   Pankaj Traders — Contact Us Page Styles
+   Theme: Industrial Warm  |  Orange #E65100 · Charcoal #263238
+═══════════════════════════════════════════════════════════════════════════ */
+
+.contactContainer {
+  background-color: #FFF8F1;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. HERO SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.heroSection {
+  background: linear-gradient(135deg, #263238 0%, #1A2327 55%, #37474F 100%);
+  padding: 5.5rem 5% 4.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glows */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  right: -8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(230, 81, 0, 0.16) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  bottom: -25%;
+  left: -5%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(255, 179, 0, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(230, 81, 0, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(230, 81, 0, 0.42);
+  padding: 0.42rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #FFE0B2;
+  margin-bottom: 1.5rem;
+}
+
+.heroContent h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 1.1rem;
+  line-height: 1.12;
+}
+
+.heroContent p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.78;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. MAIN SECTION — 2-column grid
+═══════════════════════════════════════════════════════════════════════════ */
+.mainSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  padding: 5rem 6%;
+  max-width: 1260px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── FORM SIDE ─────────────────────────────────────────────────────────────── */
+.formWrap h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #263238;
+  margin: 0 0 0.45rem;
+}
+
+.formSubtext {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #607D8B;
+  margin-bottom: 2.25rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.formGroup label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #263238;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.formGroup input,
+.formGroup textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.92rem;
+  color: #263238;
+  background: #fff;
+  border: 1.5px solid #CFD8DC;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1.05rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #E65100;
+  box-shadow: 0 0 0 3.5px rgba(230, 81, 0, 0.11);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #B0BEC5;
+}
+
+.formGroup textarea {
+  min-height: 148px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Submit button */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #E65100 0%, #FF8F00 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.95rem 2.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 7px 22px rgba(230, 81, 0, 0.3);
+  align-self: flex-start;
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(230, 81, 0, 0.42);
+}
+
+.submitBtn:active {
+  transform: translateY(-1px);
+}
+
+.statusMsg {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #2E7D32;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* ── INFO SIDE ─────────────────────────────────────────────────────────────── */
+.infoWrap h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #263238;
+  margin: 0 0 0.45rem;
+}
+
+.infoSubtext {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #607D8B;
+  margin-bottom: 1.75rem;
+}
+
+/* Contact tiles grid (2×2) */
+.tilesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contactTile {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: #fff;
+  border-radius: 1.1rem;
+  padding: 1.2rem 1.25rem;
+  border: 1px solid rgba(38, 50, 56, 0.07);
+  box-shadow: 0 3px 14px rgba(38, 50, 56, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contactTile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(230, 81, 0, 0.09);
+  border-color: rgba(230, 81, 0, 0.16);
+}
+
+.tileIcon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, rgba(230, 81, 0, 0.12), rgba(255, 143, 0, 0.07));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E65100;
+  transition: transform 0.3s ease;
+}
+
+.contactTile:hover .tileIcon {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.tileText h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #263238;
+  margin: 0 0 0.25rem;
+}
+
+.tileText p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #607D8B;
+  margin: 0.1rem 0;
+  line-height: 1.45;
+}
+
+.tileLink {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E65100;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+.tileLink:hover {
+  color: #BF360C;
+}
+
+/* Proprietors */
+.proprietorsTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #263238;
+  margin: 0 0 1rem;
+}
+
+.proprietorsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.proprietorCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(38, 50, 56, 0.07);
+  box-shadow: 0 3px 14px rgba(38, 50, 56, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.proprietorCard:hover {
+  transform: translateX(5px);
+  border-color: rgba(230, 81, 0, 0.18);
+}
+
+.proprietorAvatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E65100, #FF8F00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.proprietorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.proprietorInfo strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #263238;
+}
+
+.proprietorInfo span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #E65100;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.proprietorPhone {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #263238;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.proprietorPhone:hover {
+  color: #E65100;
+}
+
+.proprietorInfo p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #90A4AE;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. MAP SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.mapSection {
+  padding: 0 5% 5.5rem;
+}
+
+.mapHeader {
+  text-align: center;
+  padding: 0 0 2.75rem;
+}
+
+.sectionTag {
+  display: inline-block;
+  background: rgba(230, 81, 0, 0.10);
+  color: #E65100;
+  border: 1px solid rgba(230, 81, 0, 0.28);
+  padding: 0.32rem 1.05rem;
+  border-radius: 2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.mapHeader h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #263238;
+  margin: 0.5rem 0 0.4rem;
+}
+
+.mapHeader p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #607D8B;
+  margin: 0;
+}
+
+.mapWrapper {
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow: 0 14px 45px rgba(38, 50, 56, 0.13);
+  border: 1px solid rgba(38, 50, 56, 0.07);
+}
+
+.mapWrapper iframe {
+  display: block;
+  width: 100%;
+  height: 460px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (max 1024px) ──────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .mainSection {
+    grid-template-columns: 1fr;
+    padding: 4rem 5%;
+  }
+
+  .tilesGrid { grid-template-columns: repeat(2, 1fr); }
+
+  .heroContent h1 { font-size: 2.8rem; }
+}
+
+/* ── Large phone (max 768px) ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heroContent h1 { font-size: 2.2rem; }
+
+  .submitBtn { align-self: stretch; justify-content: center; }
+
+  .mapWrapper iframe { height: 360px; }
+}
+
+/* ── Small phone (max 600px) ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .heroContent h1 { font-size: 1.75rem; }
+  .heroSection { padding: 4rem 5% 3.5rem; }
+
+  .tilesGrid { grid-template-columns: 1fr; }
+
+  .formWrap h2,
+  .infoWrap h2 { font-size: 1.55rem; }
+
+  .mapWrapper iframe { height: 300px; }
+
+  .mapHeader h2 { font-size: 1.65rem; }
+
+  .proprietorsRow { gap: 0.75rem; }
+}

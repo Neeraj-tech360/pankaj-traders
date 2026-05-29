@@ -24,6 +24,7 @@ import {
   Building2,
   Star,
   Clock,
+  ChevronDown,
 } from "lucide-react";
 import styles from "./Home.module.css";
 
@@ -116,7 +117,7 @@ const STEPS = [
     step: "01",
     icon: Phone,
     title: "Visit or Call Us",
-    desc: "Walk in or call +91 96215 52345. Our experts will guide you to exactly the right materials for your project.",
+    desc: "Walk in or call us at +91 9621552345 and +91 8858755334. Our experts will guide you to exactly the right materials for your project.",
   },
   {
     step: "02",
@@ -174,7 +175,7 @@ const Home = () => {
       setText(
         isDeleting
           ? fullText.substring(0, text.length - 1)
-          : fullText.substring(0, text.length + 1)
+          : fullText.substring(0, text.length + 1),
       );
       setTypingSpeed(isDeleting ? 40 : 100);
       if (!isDeleting && text === fullText) {
@@ -198,7 +199,6 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
-
       {/* ═══════════════════════════════════════════════════════════
           1. HERO SECTION
           Video: place your file in /public/ as hero-video.mp4
@@ -215,7 +215,6 @@ const Home = () => {
         />
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
-
             {/* Badge */}
             <span className={styles.heroBadge}>
               ⚒️ Est. 2014 &nbsp;•&nbsp; Ramnagar Karjahan, Uttar Pradesh
@@ -229,8 +228,11 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className={styles.heroButtons}>
-              <Link to="/products" className={styles.btnPrimary}>
-                Explore Products
+              <Link to="/products" className={styles.learnMore}>
+                <span className={styles.circle} aria-hidden="true">
+                  <span className={`${styles.icon} ${styles.arrow}`}></span>
+                </span>
+                <span className={styles.buttonText}>Explore Products</span>
               </Link>
               <a
                 href="https://wa.me/916306346835"
@@ -256,8 +258,8 @@ const Home = () => {
 
         {/* Animated scroll indicator */}
         <div className={styles.scrollIndicator} aria-hidden="true">
-          <div className={styles.scrollDot}></div>
-        </div>
+  <ChevronDown size={16} className={styles.scrollArrow} />
+</div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
@@ -295,8 +297,8 @@ const Home = () => {
           <span className={styles.orangeText}>Your Dream</span>
         </h2>
         <p className={styles.sectionSubheading}>
-          From a single bolt to a full building's worth of materials — find
-          it all at Pankaj Traders.
+          From a single bolt to a full building's worth of materials — find it
+          all at Pankaj Traders.
         </p>
 
         <div className={styles.categoriesGrid}>
@@ -414,8 +416,8 @@ const Home = () => {
         <div className={styles.ctaContent}>
           <h2>Ready to Build Your Dream?</h2>
           <p>
-            Visit Pankaj Traders today or reach us on WhatsApp. We're open
-            every day from 7 AM to 9 PM — ready to help you build.
+            Visit Pankaj Traders today or reach us on WhatsApp. We're open every
+            day from 8 AM to 8 PM — ready to help you build.
           </p>
 
           <div className={styles.ctaButtons}>
@@ -434,7 +436,16 @@ const Home = () => {
               <Phone size={15} aria-hidden="true" />
               +91 96215 52345
             </a>
-            <span className={styles.ctaDivider} aria-hidden="true">•</span>
+            <span className={styles.ctaDivider} aria-hidden="true">
+              •
+            </span>
+            <a href="tel:+918858755334" className={styles.ctaPhone}>
+              <Phone size={15} aria-hidden="true" />
+              +91 88587 55334
+            </a>
+            <span className={styles.ctaDivider} aria-hidden="true">
+              •
+            </span>
             <a
               href="https://wa.me/916306346835"
               target="_blank"
@@ -455,7 +466,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };

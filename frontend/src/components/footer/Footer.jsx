@@ -15,7 +15,7 @@ const Footer = () => {
         </p>
         <p className={styles.hours}>
           <MdAccessTime className={styles.icon} />
-          <span>Mon–Sun: 7:00 AM – 9:00 PM</span>
+          <span>Mon–Sun: 8:00 AM – 8:00 PM</span>
         </p>
       </div>
 
@@ -38,11 +38,15 @@ const Footer = () => {
         <ul>
           <li>
             <MdLocationOn className={styles.icon} />
-            <span>Ramnagar Karjahan, Near Four Lane, UP 273202</span>
+            <span>Ramnagar Karjahan, Near Four Lane, Uttar Pradesh - 273202</span>
           </li>
           <li>
             <FaPhone className={styles.icon} />
             <a href="tel:+919621552345">+91 9621552345</a>
+          </li>
+          <li>
+            <FaPhone className={styles.icon} />
+            <a href="tel:+918858755334">+91 8858755334</a>
           </li>
           <li>
             <FaWhatsapp className={styles.icon} />
@@ -52,7 +56,7 @@ const Footer = () => {
           </li>
           <li>
             <MdEmail className={styles.icon} />
-            <span>Email coming soon</span>
+            <span>jit.itm@gmail.com</span>
           </li>
         </ul>
       </div>
