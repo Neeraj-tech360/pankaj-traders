@@ -1,0 +1,792 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   src/pages/Home/Home.module.css
+   Pankaj Traders — Home Page Styles
+   Theme: Industrial Warm  |  Orange #E65100 · Charcoal #263238 · Amber #FFB300
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Global container ─────────────────────────────────────────────────────── */
+.homeContainer {
+  background-color: #FFF8F1;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. HERO SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.heroSection {
+  position: relative;
+  height: 95vh;
+  min-height: 580px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Two-layer overlay: subtle vignette + strong bottom fade */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.30) 0%,
+    rgba(10, 10, 10, 0.55) 50%,
+    rgba(10, 10, 10, 0.82) 100%
+  ); */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.heroContent {
+  color: #fff;
+}
+
+/* Orange-tinted frosted badge */
+.heroBadge {
+  display: inline-block;
+  background: rgba(230, 81, 0, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 81, 0, 0.45);
+  padding: 0.45rem 1.25rem;
+  border-radius: 2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.6px;
+  color: #FFE0B2;
+  text-transform: uppercase;
+}
+
+/* Large, bold, Hindi + English heading */
+.heroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 1.4rem;
+  color: #fff;
+  min-height: 130px;            /* Prevents layout jump while typewriting */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroSubtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  opacity: 0.88;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Hero Buttons ─────────────────────────────────────────────────────────── */
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Primary: deep orange gradient */
+.btnPrimary {
+  padding: 0.78rem 1.9rem;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #E65100 0%, #FF8F00 100%);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(230, 81, 0, 0.38);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(230, 81, 0, 0.48);
+}
+
+/* WhatsApp: frosted glass */
+.btnWhatsApp {
+  padding: 0.78rem 1.9rem;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+.btnWhatsApp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+}
+
+/* ── Scroll indicator ─────────────────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 28px;
+  height: 46px;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  border-radius: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scrollDot {
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.4; }
+  50%       { transform: translateY(14px); opacity: 1; }
+}
+
+/* ── Typewriter cursor ────────────────────────────────────────────────────── */
+.typewriterCursor {
+  display: inline-block;
+  font-weight: 300;
+  color: #FFB300;           /* Amber — visible against dark overlay */
+  animation: blink 0.85s infinite;
+  margin-left: 3px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. STATS STRIP
+═══════════════════════════════════════════════════════════════════════════ */
+.statsStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #263238;
+  padding: 1.75rem 5%;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 140px;
+  padding: 0.5rem 2rem;
+}
+
+.statNumber {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #FFB300;
+  line-height: 1;
+}
+
+.statIcon {
+  color: #FFB300;
+  stroke-width: 2;
+}
+
+.statLabel {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.statDivider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHARED SECTION UTILITIES
+═══════════════════════════════════════════════════════════════════════════ */
+.sectionTag {
+  display: inline-block;
+  background: rgba(230, 81, 0, 0.10);
+  color: #E65100;
+  border: 1px solid rgba(230, 81, 0, 0.28);
+  padding: 0.3rem 1.05rem;
+  border-radius: 2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.sectionHeading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #263238;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.sectionSubheading {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #546E7A;
+  max-width: 540px;
+  margin: 0 auto 2.75rem;
+  line-height: 1.75;
+}
+
+.orangeText {
+  color: #E65100;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. PRODUCT CATEGORIES GRID
+═══════════════════════════════════════════════════════════════════════════ */
+.categoriesSection {
+  padding: 4.5rem 5%;
+  text-align: center;
+  background-color: #FFF8F1;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2.75rem;
+  
+}
+
+/* Each category card */
+.categoryCard {
+  background: #ffffff;
+  border: 1px solid rgba(38, 50, 56, 0.07);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem 1.6rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+}
+
+/* Accent underline that grows on hover */
+.categoryCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--cat-color, #E65100);
+  transition: width 0.4s ease;
+  border-radius: 0 0 0 1.25rem;
+}
+
+.categoryCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(38, 50, 56, 0.11);
+  border-color: rgba(230, 81, 0, 0.18);
+}
+
+.categoryCard:hover::after {
+  width: 100%;
+}
+
+/* Icon wrapper — coloured bg square */
+.categoryIconWrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background-color: var(--cat-bg, #FFF3E0);
+  color: var(--cat-color, #E65100);
+  transition: transform 0.35s ease;
+}
+
+.categoryCard:hover .categoryIconWrap {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.categoryLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #263238;
+  margin: 0 0 0.4rem;
+}
+
+.categoryDesc {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.83rem;
+  color: #607D8B;
+  margin: 0 0 1.1rem;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+/* Arrow — slides in from left on hover */
+.categoryArrow {
+  color: var(--cat-color, #E65100);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.categoryCard:hover .categoryArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* View All button */
+.viewAllWrap {
+  text-align: center;
+}
+
+.btnViewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.78rem 2.1rem;
+  background: #E65100;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
+}
+
+.btnViewAll:hover {
+  background: #BF360C;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(230, 81, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. HOW WE SERVE YOU  &  6. WHY CHOOSE US
+   (shared .infoSection, .featureCard styles)
+═══════════════════════════════════════════════════════════════════════════ */
+.infoSection {
+  padding: 4.5rem 5%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.benefitsSection {
+  background-color: #FFF8F1;
+}
+
+.infoHeading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #263238;
+  line-height: 1.25;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stepsGrid    { grid-template-columns: repeat(3, 1fr); }
+.benefitsGrid { grid-template-columns: repeat(4, 1fr); }
+
+/* Feature card */
+.featureCard {
+  background: #fff;
+  padding: 2.2rem 1.6rem 1.8rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(38, 50, 56, 0.055);
+  border: 1px solid rgba(38, 50, 56, 0.065);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large background step number — decorative */
+.featureStep {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: rgba(230, 81, 0, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.featureIcon {
+  color: #263238;
+  margin-bottom: 1.3rem;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.featureCard h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #263238;
+  margin: 0 0 0.7rem;
+}
+
+.featureCard p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #546E7A;
+  line-height: 1.75;
+  margin: 0 0 1.5rem;
+  flex-grow: 1;
+}
+
+/* Small dot accent at bottom of each card */
+.featureDot {
+  width: 8px;
+  height: 8px;
+  background-color: #B0BEC5;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+/* Hover state */
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(230, 81, 0, 0.1);
+  border-color: rgba(230, 81, 0, 0.16);
+}
+
+.featureCard:hover .featureIcon {
+  color: #E65100;
+  transform: scale(1.15);
+}
+
+.featureCard:hover .featureDot {
+  background-color: #E65100;
+  transform: scale(1.5);
+  box-shadow: 0 0 10px rgba(230, 81, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. TRUST STRIP
+═══════════════════════════════════════════════════════════════════════════ */
+.trustStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  background-color: #FFF3E0;             /* very light orange tint */
+  padding: 2rem 5%;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(38, 50, 56, 0.055);
+  border: 1px solid rgba(230, 81, 0, 0.07);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.trustItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(230, 81, 0, 0.1);
+  border-color: rgba(230, 81, 0, 0.22);
+}
+
+.trustIcon {
+  width: 36px;
+  height: 36px;
+  color: #E65100;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.trustItem:hover .trustIcon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.trustItem div strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #263238;
+  margin-bottom: 0.18rem;
+}
+
+.trustItem div p {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #607D8B;
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. CTA SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.ctaSection {
+  padding: 5.5rem 5%;
+  text-align: center;
+  background: linear-gradient(135deg, #263238 0%, #1A2327 55%, #37474F 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative radial glow in the background */
+.ctaGlow {
+  position: absolute;
+  top: -40%;
+  right: -8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(230, 81, 0, 0.14) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.ctaSection h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.ctaSection p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  opacity: 0.82;
+  margin-bottom: 2.5rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+}
+
+/* Amber primary CTA */
+.ctaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2.1rem;
+  background: #FFB300;
+  color: #263238;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 22px rgba(255, 179, 0, 0.32);
+}
+
+.ctaBtnPrimary:hover {
+  background: #FFC107;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 179, 0, 0.42);
+}
+
+/* Outline secondary CTA */
+.ctaBtnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2.1rem;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+}
+
+.ctaBtnOutline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+/* Phone / WhatsApp links row */
+.ctaContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.ctaPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.ctaPhone:hover {
+  color: #FFB300;
+}
+
+.ctaDivider {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (max 1024px) ──────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .categoriesGrid  { grid-template-columns: repeat(2, 1fr); }
+  .benefitsGrid    { grid-template-columns: repeat(2, 1fr); }
+  .sectionHeading  { font-size: 2rem; }
+  .infoHeading     { font-size: 2rem; }
+}
+
+/* ── Large phone (max 768px) ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 1.85rem;
+    min-height: 115px !important;
+  }
+
+  .heroSubtitle { font-size: 0.95rem; }
+
+  .statsStrip { gap: 0.5rem; }
+  .statItem   { min-width: 120px; padding: 0.5rem 1.2rem; }
+  .statDivider { display: none; }
+
+  .stepsGrid { grid-template-columns: 1fr; }
+
+  .trustStrip { grid-template-columns: repeat(2, 1fr); }
+
+  .ctaSection h2 { font-size: 2rem; }
+}
+
+/* ── Small phone (max 600px) ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 1.45rem;
+    min-height: 160px !important;
+  }
+
+  .heroButtons { flex-direction: column; align-items: center; }
+
+  .categoriesGrid { grid-template-columns: 1fr; }
+  .benefitsGrid   { grid-template-columns: 1fr; }
+  .trustStrip     { grid-template-columns: 1fr; }
+
+  .ctaButtons { flex-direction: column; align-items: center; }
+
+  .sectionHeading { font-size: 1.7rem; }
+  .infoHeading    { font-size: 1.7rem; }
+  .ctaSection h2  { font-size: 1.7rem; }
+}

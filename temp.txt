@@ -1,0 +1,1462 @@
+I want you to create 4 files:
+1. global.css in the styles folder
+2. index.html in the root
+3. navbar components in the components folder
+4. footer components in the components folder
+
+You need to adapt the files I am providing you from my old project for the current project. We are using the old files to do the work fast. To know about the current project, read the CLAUDE.md file and adapt the following files accordingly:
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/yahora_favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?    family=Bree+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Yahora | Keep the Story Going</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+/* frontend/src/styles/global.css */
+
+:root {  
+  /* Purple */
+  --purple: #800080;
+  --purple-dark: #4f014f;
+  --purple-light: #d700d7;
+  --purple-emphasis: #2a082a;
+
+  /* Pink */
+  --pink: #FF78A6;
+  --pink-dark: #EB487F;
+  --pink-light: ##f4e0e4;
+  --pink-bg: #fef4f6;
+  --pink-emphasis: #300B15; 
+
+  /* Blue */
+  --blue: #2BB7FF;
+  --blue-dark: #0B93D8;
+  --blue-light: #6FE1FF;
+
+  /* Text & background */
+  --black: #0B0B0B;
+  --black-soft: #1A1A1A;
+  --white: #FFFFFF;
+  --bg: #f2e5e1;
+}
+
+
+body {
+  background-color: var(--bg);
+  color: var(--black-soft);
+  margin: 0;
+  /* Inter for UI readability */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply Bree Serif to all your headings and brand text */
+h1, h2, h3, h4, h5, h6, .brand-text, .brandName {
+  font-family: 'Bree Serif', serif;
+  font-weight: 400; /* Bree Serif looks best at normal weight */
+}
+
+/* Ensure all elements box-sizing is handled cleanly */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure all elements box-sizing is handled cleanly */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+// frontend\src\components\navbar\navbar.jsx
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../contexts/AuthContext";
+import styles from "./navbar.module.css";
+import { supabase } from "../../config/supabaseClient";
+
+// ─────────────────────────────────────────────
+// ICONS
+// ─────────────────────────────────────────────
+const BellIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+  </svg>
+);
+
+const UserIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </svg>
+);
+
+const DashboardIcon = ({ className }) => (
+  <svg
+    className={className}
+    width="20"
+    height="20"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M14,10V22H4a2,2,0,0,1-2-2V10Z"></path>
+    <path d="M22,10V20a2,2,0,0,1-2,2H16V10Z"></path>
+    <path d="M22,4V8H2V4A2,2,0,0,1,4,2H20A2,2,0,0,1,22,4Z"></path>
+  </svg>
+);
+
+const SettingsIcon = ({ className }) => (
+  <svg
+    className={className}
+    width="20"
+    height="20"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M14.2788 2.15224C13.9085 2 13.439 2 12.5 2C11.561 2 11.0915 2 10.7212 2.15224C10.2274 2.35523 9.83509 2.74458 9.63056 3.23463C9.53719 3.45834 9.50065 3.7185 9.48635 4.09799C9.46534 4.65568 9.17716 5.17189 8.69017 5.45093C8.20318 5.72996 7.60864 5.71954 7.11149 5.45876C6.77318 5.2813 6.52789 5.18262 6.28599 5.15102C5.75609 5.08178 5.22018 5.22429 4.79616 5.5472C4.47814 5.78938 4.24339 6.1929 3.7739 6.99993C3.30441 7.80697 3.06967 8.21048 3.01735 8.60491C2.94758 9.1308 3.09118 9.66266 3.41655 10.0835C3.56506 10.2756 3.77377 10.437 4.0977 10.639C4.57391 10.936 4.88032 11.4419 4.88029 12C4.88026 12.5581 4.57386 13.0639 4.0977 13.3608C3.77372 13.5629 3.56497 13.7244 3.41645 13.9165C3.09108 14.3373 2.94749 14.8691 3.01725 15.395C3.06957 15.7894 3.30432 16.193 3.7738 17C4.24329 17.807 4.47804 18.2106 4.79606 18.4527C5.22008 18.7756 5.75599 18.9181 6.28589 18.8489C6.52778 18.8173 6.77305 18.7186 7.11133 18.5412C7.60852 18.2804 8.2031 18.27 8.69012 18.549C9.17714 18.8281 9.46533 19.3443 9.48635 19.9021C9.50065 20.2815 9.53719 20.5417 9.63056 20.7654C9.83509 21.2554 10.2274 21.6448 10.7212 21.8478C11.0915 22 11.561 22 12.5 22C13.439 22 13.9085 22 14.2788 21.8478C14.7726 21.6448 15.1649 21.2554 15.3694 20.7654C15.4628 20.5417 15.4994 20.2815 15.5137 19.902C15.5347 19.3443 15.8228 18.8281 16.3098 18.549C16.7968 18.2699 17.3914 18.2804 17.8886 18.5412C18.2269 18.7186 18.4721 18.8172 18.714 18.8488C19.2439 18.9181 19.7798 18.7756 20.2038 18.4527C20.5219 18.2105 20.7566 17.807 21.2261 16.9999C21.6956 16.1929 21.9303 15.7894 21.9827 15.395C22.0524 14.8691 21.9088 14.3372 21.5835 13.9164C21.4349 13.7243 21.2262 13.5628 20.9022 13.3608C20.4261 13.0639 20.1197 12.558 20.1197 11.9999C20.1197 11.4418 20.4261 10.9361 20.9022 10.6392C21.2263 10.4371 21.435 10.2757 21.5836 10.0835C21.9089 9.66273 22.0525 9.13087 21.9828 8.60497C21.9304 8.21055 21.6957 7.80703 21.2262 7C20.7567 6.19297 20.522 5.78945 20.2039 5.54727C19.7799 5.22436 19.244 5.08185 18.7141 5.15109C18.4722 5.18269 18.2269 5.28136 17.8887 5.4588C17.3915 5.71959 16.7969 5.73002 16.3099 5.45096C15.8229 5.17191 15.5347 4.65566 15.5136 4.09794C15.4993 3.71848 15.4628 3.45833 15.3694 3.23463C15.1649 2.74458 14.7726 2.35523 14.2788 2.15224ZM12.5 15C14.1695 15 15.5228 13.6569 15.5228 12C15.5228 10.3431 14.1695 9 12.5 9C10.8305 9 9.47716 10.3431 9.47716 12C9.47716 13.6569 10.8305 15 12.5 15Z"
+      clipRule="evenodd"
+      fillRule="evenodd"
+    ></path>
+  </svg>
+);
+
+const XIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
+
+const handleCartClick = () => {
+  console.log("Wishlist/Cart button was clicked!");
+};
+
+function Navbar() {
+  const { isAuthenticated, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [userName, setUserName] = useState("");
+  const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const navLinkClass = ({ isActive }) =>
+    `${styles.navButton} ${isActive ? styles.navButtonActive : ""}`;
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
+
+  // Close profile dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Fetch the user's avatar from the backend
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      if (isAuthenticated) {
+        const userId = localStorage.getItem("yahora_user_id");
+        const token = localStorage.getItem("yahora_session");
+        if (userId && token) {
+          try {
+            const res = await fetch(
+              `${import.meta.env.VITE_API_BASE_URL}/api/user/${userId}/dashboard`,
+              { headers: { Authorization: `Bearer ${token}` } },
+            );
+            if (res.ok) {
+              const data = await res.json();
+              if (data.profile && data.profile.avatar_url)
+                setAvatarUrl(data.profile.avatar_url);
+              if (data.profile.full_name) setUserName(data.profile.full_name);
+            }
+          } catch (e) {
+            console.error("Could not load avatar:", e);
+          }
+        }
+      } else {
+        setAvatarUrl(null);
+      }
+    };
+    fetchAvatar();
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("yahora_user_id");
+    if (!isAuthenticated || !userId) {
+      setUnreadCount(0);
+      return;
+    }
+
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/messages/deliver`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId }),
+    });
+
+    const fetchUnread = async () => {
+      const { count } = await supabase
+        .from("messages")
+        .select("*", { count: "exact", head: true })
+        .eq("receiver_id", userId)
+        .eq("is_read", false);
+      setUnreadCount(count || 0);
+    };
+    fetchUnread();
+
+    const presenceChannel = supabase
+      .channel("online-users", { config: { presence: { key: userId } } })
+      .on("presence", { event: "sync" }, () => {
+        const state = presenceChannel.presenceState();
+        const activeIds = Object.keys(state);
+        window.yahoraOnlineUsers = activeIds;
+        window.dispatchEvent(
+          new CustomEvent("yahora-presence", { detail: activeIds }),
+        );
+      });
+
+    presenceChannel.subscribe(async (status) => {
+      if (status === "SUBSCRIBED")
+        await presenceChannel.track({ online_at: new Date().toISOString() });
+    });
+
+    const channel = supabase
+      .channel("navbar-unread")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "messages",
+          filter: `receiver_id=eq.${userId}`,
+        },
+        () => {
+          setUnreadCount((prev) => prev + 1);
+          fetch(`${import.meta.env.VITE_API_BASE_URL}/api/messages/deliver`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId }),
+          });
+        },
+      )
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "messages",
+          filter: `receiver_id=eq.${userId}`,
+        },
+        () => fetchUnread(),
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+      supabase.removeChannel(presenceChannel);
+    };
+  }, [isAuthenticated]);
+
+  const handleLogout = () => {
+    logout();
+    setIsDropdownOpen(false);
+    closeMenu();
+    navigate("/auth");
+  };
+
+  const displayName = userName || "User";
+  const initials = displayName
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  const hue =
+    displayName.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0) % 360;
+
+  return (
+    <div className={styles.navElements}>
+      {/* Mobile Overlay Background */}
+      {isMenuOpen && (
+        <div className={styles.mobileOverlay} onClick={closeMenu}></div>
+      )}
+
+      <div className={styles.logo}>
+        <Link to="/" onClick={closeMenu}>
+          <button className={styles.logoBtn}>
+            <img src="/yahora_logo.svg" alt="Yahora Logo" />
+          </button>
+        </Link>
+      </div>
+
+      <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ""}`}>
+        {/* Mobile Menu Header (Only visible on small screens) */}
+        <div className={styles.mobileMenuHeader}>
+          <img
+            src="/yahora_logo.svg"
+            alt="Yahora"
+            className={styles.mobileLogo}
+          />
+          <button className={styles.closeMenuBtn} onClick={closeMenu}>
+            <XIcon />
+          </button>
+        </div>
+
+        <NavLink to="/" end className={navLinkClass} onClick={closeMenu}>
+          <span>Home</span>
+        </NavLink>
+
+        <NavLink
+          to="/marketplace"
+          end
+          className={navLinkClass}
+          onClick={closeMenu}
+        >
+          <span>Marketplace</span>
+        </NavLink>
+
+        <NavLink to="/hot" end className={navLinkClass} onClick={closeMenu}>
+          <span>Campus Hot</span>
+        </NavLink>
+
+        <NavLink
+          to="/messages"
+          end
+          className={navLinkClass}
+          onClick={closeMenu}
+          style={{ position: "relative" }}
+        >
+          <span>Messages</span>
+          {unreadCount > 0 && (
+            <span className={styles.unreadBadge}>
+              {unreadCount > 99 ? "99+" : unreadCount}
+            </span>
+          )}
+        </NavLink>
+      </div>
+
+      <div className={styles.navActions}>
+        {isAuthenticated ? (
+          <div className={styles.userActions}>
+            <button className={styles.cartButton} onClick={handleCartClick}>
+              <img className={styles.cart} src="/cart.svg" alt="Wishlist" />
+            </button>
+
+            <button className={styles.iconBtn} title="Notifications">
+              <BellIcon />
+            </button>
+
+            <div className={styles.profileMenu} ref={dropdownRef}>
+              <button
+                className={`${styles.iconBtn} ${styles.profileBtn}`}
+                onClick={toggleDropdown}
+                style={
+                  avatarUrl || userName
+                    ? { padding: 0, overflow: "hidden", border: "none" }
+                    : {}
+                }
+              >
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt="User Avatar"
+                    className={styles.navAvatarImg}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
+                  />
+                ) : userName ? (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: `linear-gradient(135deg, hsl(${hue}, 60%, 55%), hsl(${hue + 40}, 60%, 45%))`,
+                      color: "white",
+                      fontWeight: "bold",
+                      fontSize: "15px",
+                      borderRadius: "50%",
+                      border: "2px solid #2a082a",
+                    }}
+                  >
+                    {initials}
+                  </div>
+                ) : (
+                  <UserIcon />
+                )}
+              </button>
+
+              {isDropdownOpen && (
+                <div className={styles.profileDropdown}>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={styles.dropdownItem}
+                  >
+                    <DashboardIcon className={styles.dropdownIcon} /> Dashboard
+                  </Link>
+                  <Link
+                    to="/settings"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={styles.dropdownItem}
+                  >
+                    <SettingsIcon className={styles.dropdownIcon} /> Settings
+                  </Link>
+                  <hr />
+                  <button
+                    onClick={handleLogout}
+                    className={`${styles.Btn} ${styles.logoutBtn}`}
+                  >
+                    <div className={styles.sign}>
+                      <svg
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h7v-2H5V5h7V3H5zm11 4l-1.41 1.41L17.17 11H9v2h8.17l-2.58 2.58L16 17l5-5-5-5z" />
+                      </svg>
+                    </div>
+                    <div className={styles.text}>Logout</div>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <Link
+            to="/auth"
+            style={{ textDecoration: "none" }}
+            onClick={closeMenu}
+          >
+            <button className={styles.loginButton}>
+              <span className={styles.loginButtonIconWrapper}>
+                <svg
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={styles.loginButtonIconSvg}
+                  width="10"
+                >
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <svg
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  width="10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`${styles.loginButtonIconSvg} ${styles.loginButtonIconSvgCopy}`}
+                >
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              Login / Sign up
+            </button>
+          </Link>
+        )}
+
+        <button className={styles.hamburgerMenu} onClick={toggleMenu}>
+          &#9776;
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;
+
+
+/* frontend\src\components\navbar\navbar.module.css */
+.navElements {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   background-color: var(--white);
+   border-bottom: 1px solid #EAEAEA;
+   margin: 0px;
+   padding: 0 1rem;
+   position: relative;
+   height: 3rem;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+   z-index: 9999;
+}
+
+
+.navLinks {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+}
+
+.navButton {
+ align-items: center;
+ appearance: none;
+ background-color: #fff;
+ border-radius: 24px;
+ border: none;
+ box-shadow:
+   rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+   rgba(0, 0, 0, 0.14) 0 6px 10px 0,
+   rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+ box-sizing: border-box;
+ color: #3c4043;
+ cursor: pointer;
+ display: inline-flex;
+ justify-content: center;
+ height: 30px;
+ padding: 5px 14px;
+ text-decoration: none;
+ transition:
+   box-shadow 280ms cubic-bezier(.4, 0, .2, 1),
+   opacity 15ms linear 30ms,
+   transform 270ms cubic-bezier(0, 0, .2, 1),
+   background 200ms ease,
+   color 200ms ease;
+ user-select: none;
+ -webkit-user-select: none;
+ -webkit-tap-highlight-color: transparent;
+ touch-action: manipulation;
+ position: relative;
+ white-space: nowrap;
+ font-family: inherit;
+ outline: none;
+}
+
+.navButtonActive,
+.navButtonActive span,
+.navButtonActive:visited {
+ color: var(--white);
+}
+
+.navButton span {
+ font-family: inherit;
+ font-size: 14px;
+ font-weight: 500;
+ letter-spacing: 0.25px;
+ line-height: normal;
+}
+
+.navButton:hover,
+.navButtonActive {
+ background: var(--purple-dark);
+ color: var(--white);
+}
+
+.navButton:active,
+.navButton:focus,
+.navButton:focus-visible {
+ outline: none;
+}
+
+.navButton:disabled {
+ box-shadow:
+   rgba(60, 64, 67, .3) 0 1px 3px 0,
+   rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.navButtonActive span {
+ color: inherit;
+}
+
+.unreadBadge {
+  position: absolute;
+  top: -4px; /* Adjusted slightly up to account for the new fixed height */
+  right: -8px;
+  background: var(--pink-dark, #EB487F);
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid white;
+  line-height: 1;
+
+  /* --- FIX: The Perfect Circle Properties --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;  /* Equal width... */
+  height: 20px; /* ...and height */
+  border-radius: 50%; /* Forces a perfect circle geometry */
+  padding: 0; /* Remove the horizontal padding */
+  font-size: 0.65rem; /* Ensure "99+" fits inside the 22px circle */
+}
+
+.navButton .unreadBadge {
+ font-size: 0.65rem;
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+}
+
+.logoBtn {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}
+
+.brandText {
+   font-size: 1.5rem;
+   font-weight: 800;
+   color: var(--purple);
+   letter-spacing: -0.5px;
+}
+
+.logo img {
+   height: 3.5rem;
+}
+
+.navActions {
+   display: flex;
+   align-items: center;
+   gap: 0rem;
+}
+
+.cartButton {
+   height: 2.25rem;
+   width: 2.25rem;
+   border: 0px transparent;
+   margin: 0.25rem;
+   padding: 0px;
+   border-radius: 1rem;
+   background-color: var(--light-pink);
+   transform: translateY(-2px);
+   cursor: pointer;
+}
+
+.cart {
+   height: 1.75rem;
+   width: 1.25rem;
+   border: 0px transparent;
+   padding: 0rem;
+   border-radius: 0rem;
+}
+
+/* Hover States */
+.cartButton:hover {
+   background-color: var(--pink-dark);
+   transition-duration: 0.5s;
+}
+
+.cartButton:focus {
+   outline: none;
+}
+
+.cartButton:active {
+   background-color: var(--light-pink);
+}
+
+.cart:hover {
+   transition-duration: 0.5s;
+   filter: brightness(0) saturate(100%) invert(100%) sepia(35%) saturate(5729%) hue-rotate(177deg) brightness(111%) contrast(102%);
+}
+
+.hamburgerMenu {
+   display: none;
+   background: none;
+   border: none;
+   color: var(--black);
+   font-size: 1.8rem;
+   cursor: pointer;
+}
+
+.userActions {
+ display: flex;
+ align-items: center;
+ gap: 0.2rem;
+}
+
+.iconBtn {
+ background: transparent;
+ border: none;
+ cursor: pointer;
+ color: var(--black-soft);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-right: 0.7rem;
+ width: 35px;
+ height: 35px;
+ border-radius: 50%;
+ transition: background 0.2s ease, color 0.2s ease;
+}
+
+.iconBtn:hover {
+ background: var(--pink-light);
+ color: var(--purple);
+}
+
+/* --- MODERN CIRCULAR AVATAR --- */
+.profileBtn {
+ position: relative;
+ overflow: hidden;
+}
+
+.profileBtn.hasAvatar {
+ padding: 0;
+ border: 2.15px solid var(--purple-dark);
+ transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navAvatarImg {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ border-radius: 50%;
+ border: 2px solid var(--purple-emphasis);
+ display: block;
+}
+
+/* --- DROPDOWN MENU --- */
+.profileMenu {
+ position: relative;
+}
+
+.profileDropdown {
+ position: absolute;
+ top: 45px;
+ right: 0;
+ width: 160px; /* Increased from 150px to prevent text wrapping */
+ background: white;
+ border-radius: 12px;
+ box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
+ z-index: 1000;
+ border: 1px solid #f0f0f0;
+ padding: 8px 0;
+}
+
+/* Updated Dropdown items with icons */
+.dropdownItem {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 9px 16px;
+ margin: 2px 10px;
+ border-radius: 8px; /* Square shape looks cleaner in dropdowns */
+ text-decoration: none; /* Re-enabled this to remove the ugly underline */
+ color: var(--black-soft);
+ background: transparent;
+ border: none;
+ text-align: left;
+ font-size: 0.85rem; /* Slightly larger text */
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+ background: rgba(128, 0, 128, 0.06);
+ color: var(--purple);
+}
+
+.dropdownIcon {
+ width: 20px;
+ height: 20px;
+ color: #777; /* Set default to grey to match your screenshot */
+ transition: color 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownIcon {
+ color: var(--purple); /* Turn purple on hover */
+}
+
+.profileDropdown hr {
+ margin: 6px 0;
+ border: none;
+ border-top: 1px solid #f0f0f0;
+}
+
+/* --- THE NEW LOGOUT PILL BUTTON --- */
+.Btn.logoutBtn {
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ width: 35px;
+ height: 35px;
+ border: none;
+ border-radius: 50%;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition-duration: 0.3s;
+ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+ background-color: var(--white);
+ margin: 1px auto 10px auto;
+ border: 1px solid #f0f0f0;
+}
+
+.Btn.logoutBtn .sign {
+ width: 100%;
+ transition-duration: 0.3s;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.Btn.logoutBtn .sign svg {
+ width: 17px;
+}
+
+.Btn.logoutBtn .sign svg path {
+ fill: var(--pink-dark);
+ transition: fill 0.3s ease;
+}
+
+.Btn.logoutBtn .text {
+ position: absolute;
+ right: 0%;
+ width: 0%;
+ opacity: 0;
+ color: white;
+ font-size: 0.95rem;
+ font-weight: 600;
+ transition-duration: 0.3s;
+}
+
+.Btn.logoutBtn:hover {
+ background-color: var(--pink-dark);
+ width: 115px;
+ border-radius: 40px;
+ transition-duration: 0.3s;
+ border-color: var(--pink-dark);
+}
+
+.Btn.logoutBtn:hover .sign {
+ width: 30%;
+ transition-duration: 0.3s;
+ padding-left: 15px;
+}
+
+.Btn.logoutBtn:hover .sign svg path {
+ fill: white;
+}
+
+.Btn.logoutBtn:hover .text {
+ opacity: 1;
+ width: 70%;
+ transition-duration: 0.3s;
+ padding-right: 15px;
+}
+
+.Btn.logoutBtn:active {
+ transform: translate(1px, 1px);
+}
+
+/* --- THE NEW LOGIN/SIGNUP BUTTON --- */
+.loginButton {
+ --clr: var(--purple);
+ line-height: 1;
+ text-decoration: none;
+ display: inline-flex;
+ border: none;
+ cursor: pointer;
+ align-items: center;
+ gap: 0.75rem;
+ background-color: var(--clr);
+ color: #fff;
+ border-radius: 1.5rem;
+ font-weight: 500;
+ font-size: 0.85rem;
+ padding: 0.4rem 0.8rem ;
+ padding-left: 8px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ transition: background-color 0.3s, transform 0.2s;
+ box-shadow: 0 4px 12px rgba(128, 0, 128, 0.2);
+}
+
+.loginButtonIconWrapper {
+ flex-shrink: 0;
+ width: 20px;
+ height: 20px;
+ position: relative;
+ color: var(--clr);
+ background-color: #fff;
+ border-radius: 50%;
+ display: grid;
+ place-items: center;
+ overflow: hidden;
+ transition: color 0.3s ease;
+}
+
+.loginButton:hover {
+ background-color: var(--pink-dark);
+ transform: translateY(-1px);
+}
+
+.loginButton:hover .loginButtonIconWrapper {
+ color: var(--pink-dark);
+}
+
+.loginButtonIconSvgCopy {
+ position: absolute;
+ transform: translate(-150%, 150%);
+}
+
+.loginButton:hover .loginButtonIconSvg:first-child {
+ transition: transform 0.3s ease-in-out;
+ transform: translate(150%, -150%);
+}
+
+.loginButton:hover .loginButtonIconSvgCopy {
+ transition: transform 0.3s ease-in-out 0.1s;
+ transform: translate(0);
+}
+
+/* Hide Mobile Menu Header on Desktop */
+.mobileMenuHeader {
+   display: none;
+}
+
+/* ========================================================================================================== */
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+   .navElements {
+       padding: 0 1rem;
+   }
+
+   /* --- NEW: The Background Overlay for clicking outside --- */
+   .mobileOverlay {
+       position: fixed;
+       inset: 0;
+       background: rgba(0, 0, 0, 0.5);
+       backdrop-filter: blur(4px);
+       z-index: 1499; /* Just below the drawer */
+       animation: fadeIn 0.3s ease;
+   }
+   
+   @keyframes fadeIn {
+       from { opacity: 0; }
+       to { opacity: 1; }
+   }
+
+   /* --- REVAMPED: Sleek Side Drawer --- */
+   .navLinks {
+       position: fixed;
+       top: 0;
+       left: 0;
+       height: 100dvh;
+       width: 280px; /* Slightly wider for elegance */
+       background-color: var(--white);
+       padding: 1.5rem 1rem;
+       z-index: 1500;
+       display: flex;
+       flex-direction: column;
+       align-items: stretch;
+       justify-content: flex-start;
+       transform: translateX(-100%);
+       transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+       box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+       /* Smooth rounded corners on the right edge */
+       border-top-right-radius: 20px;
+       border-bottom-right-radius: 20px;
+   }
+  
+   .navLinks.active {
+       transform: translateX(0);
+   }
+
+   /* --- NEW: Mobile Menu Header (Logo & Close button) --- */
+   .mobileMenuHeader {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-bottom: 2rem;
+       padding-bottom: 1rem;
+       border-bottom: 1px solid #eaeaea;
+   }
+   
+   .mobileLogo {
+       height: 2rem;
+   }
+   
+   .closeMenuBtn {
+       background: #f5f0f5;
+       border: none;
+       color: #666;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 6px;
+       border-radius: 50%;
+       transition: all 0.2s;
+   }
+   
+   .closeMenuBtn:hover {
+       background: var(--purple);
+       color: white;
+   }
+
+   /* --- REVAMPED: Mobile Nav Links (Full width rows instead of pills) --- */
+   .navLinks .navButton {
+       width: 100%;
+       justify-content: flex-start;
+       padding: 14px 20px;
+       border-radius: 14px;
+       height: auto;
+       box-shadow: none;
+       border: 1px solid transparent;
+       margin: 0;
+   }
+
+   .navLinks span {
+       font-size: 1.05rem;
+       font-weight: 500;
+   }
+
+   .navLinks .navButton:hover {
+       background: rgba(128, 0, 128, 0.05);
+       color: var(--purple);
+   }
+
+   .navLinks .navButtonActive {
+       background: rgba(128, 0, 128, 0.08);
+       color: var(--purple);
+       border-color: rgba(128, 0, 128, 0.1);
+       box-shadow: none;
+   }
+   
+   .navLinks .navButtonActive span {
+       color: var(--purple);
+       font-weight: 700;
+   }
+
+.navLinks .unreadBadge {
+       position: static;
+       margin-left: auto;
+       width: 24px;  /* Slightly larger for mobile visibility */
+       height: 24px;
+       border-radius: 50%;
+       padding: 0;
+       font-size: 0.7rem;
+   }
+
+   .hamburgerMenu {
+       display: block;
+       z-index: 1000;
+   }
+  
+   .cartButton {
+     grid-column: 3;
+     justify-self: end;
+     margin-top: 0.5rem;
+   }
+}
+
+// frontend\src\components\footer\footer.jsx
+import React, { useState, useEffect } from "react";
+import styles from "./footer.module.css";
+import { supabase } from "../../config/supabaseClient";
+
+const Footer = () => {
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    const fetchAndIncrementCount = async () => {
+      // Only increment if they haven't been counted in this specific browser tab session
+      if (!sessionStorage.getItem("hasVisited")) {
+        const { data, error } = await supabase.rpc("increment_page_view");
+        if (!error && data !== null) {
+          setVisitorCount(data);
+          sessionStorage.setItem("hasVisited", "true");
+        }
+      } else {
+        // If already visited this session, just fetch the current count without incrementing
+        const { data, error } = await supabase
+          .from("visitor_metrics")
+          .select("view_count")
+          .eq("id", 1)
+          .single();
+        if (!error && data) setVisitorCount(data.view_count);
+      }
+    };  
+
+    fetchAndIncrementCount();
+  }, []);
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.description}>
+        <img src="/yahora_logo.svg" alt="Yahora Logo" className={styles.logo} />
+        <p>
+          Because Every Item Has a Memory. A high-trust, closed-loop community
+          marketplace exclusively for students.
+        </p>
+      </div>
+
+      <nav className={styles.navigation}>
+        <h4>Quick Links</h4>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/feed">Marketplace Feed</a>
+          </li>
+          <li>
+            <a href="/hot">Trending on Campus</a>
+          </li>
+          <li>
+            <a href="/messages">Messages</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div className={styles.contactInfo}>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>
+            <p>📍 India</p>
+          </li>
+          <li>
+            <p>📞 +91 9140400064</p>
+          </li>
+          <li>
+            <p>📞 +91 6386444659</p>
+          </li>
+          <li>
+            <p>📧 infiniper@gmail.com</p>
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.socialMedia}>
+        <h4>Follow Us</h4>
+        <ul>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              Twitter / X
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.newsletter}>
+        <h4>Join Your Campus</h4>
+        <p>Get updates on seasonal move-out sales and trending campus items!</p>
+        <div className={styles.newsletterForm}>
+          <input
+            type="email"
+            placeholder="Enter university email"
+            className={styles.newsletterInput}
+          />
+          <button className={styles.newsletterButton}>Subscribe</button>
+        </div>
+      </div>
+
+      <div className={styles.copyright}>
+        <p>Copyright © 2026 Yahora. All Rights Reserved.</p>
+        <div className={styles.legalLinks}>
+          <a href="/terms">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+        {/* NEW VISITOR COUNTER SECTION */}
+        <div className={styles.visitorCounter}>
+          <p>👀 Total Site Visits: {visitorCount}</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+
+/* frontend\src\components\footer\footer.module.css */
+.footer {
+  display: grid;
+  gap: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
+  background-color: var(--purple-dark);
+  color: var(--bg);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "desc nav contact social"
+    "newsletter newsletter newsletter newsletter"
+    "copyright copyright copyright copyright";
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.logo {
+  max-width: 275px;
+  /* margin-bottom: 1rem; */
+  filter: brightness(0) invert(1);
+}
+
+h4 {
+  color: var(--blue-light);
+  margin-bottom: 1rem;
+  font-size: 0.1rem;
+  font-weight: 600;
+}
+
+.footer p, .footer a, .footer li {
+  color: var(--white);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--pink-light);
+  opacity: 1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+/* Grid Area Assignments */
+.description { grid-area: desc; padding-right: 2rem; }
+.navigation { grid-area: nav; }
+.contactInfo { grid-area: contact; }
+.socialMedia { grid-area: social; }
+
+.newsletter { 
+  grid-area: newsletter; 
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.copyright { 
+  grid-area: copyright;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Newsletter Form */
+.newsletterForm {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.newsletterInput {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+  width: 300px;
+  font-size: 0.85rem;
+}
+
+.newsletterInput:focus {
+  outline: 2px solid var(--blue);
+}
+
+.newsletterButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--purple-light);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.newsletterButton:hover {
+  background-color: var(--purple);
+}
+
+.copyright p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.legalLinks {
+  margin-top: 0.5rem;
+}
+
+.legalLinks a {
+  margin: 0 0.5rem;
+  font-size: 0.85rem;
+}
+
+.legalLinks span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Visitor Counter */
+.visitorCounter {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.visitorCounter p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue-light);
+  letter-spacing: 0.5px;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) { 
+  .footer {
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas:
+      "desc desc"
+      "nav contact"
+      "social social"
+      "newsletter newsletter"
+      "copyright copyright";
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-template-areas:
+      "desc"
+      "nav"
+      "contact"
+      "social"
+      "newsletter"
+      "copyright";
+  }
+  
+  .description {
+      padding-right: 0;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .newsletterInput {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .newsletterButton {
+      width: 100%;
+      max-width: 350px;
+  }
+}
+
+
+In the navbar, we don't want the profile icon and notification, so remove them.
+From the new footer, remove the newsletter section. 
+Note: We will write all the css in module with classNames as camelCase except for global.css.
+The website will be in light mode. Also don't make too much of styling changes, what we want  is too adapt the yahora website for Pankaj traders.
