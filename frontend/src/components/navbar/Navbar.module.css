@@ -133,6 +133,11 @@
 /* ====================================================================== */
 /* Mobile */
 @media (max-width: 768px) {
+  .mobileMenuHeader img{
+    height: 44px;   /* adjust up/down to taste */
+  width: auto;
+  display: block;
+  }
   .navElements {
     padding: 0 1rem;
   }

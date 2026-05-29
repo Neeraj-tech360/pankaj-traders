@@ -14,7 +14,7 @@
 ═══════════════════════════════════════════════════════════════════════════ */
 .heroSection {
   background: linear-gradient(135deg, #263238 0%, #1A2327 55%, #37474F 100%);
-  padding: 5.5rem 5% 4.5rem;
+  padding: 2.8rem 5% 2.2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -201,6 +201,38 @@
   color: #2E7D32;
   font-weight: 600;
   margin-top: 0.25rem;
+}
+
+/* ── Social Links (same structure as original, orange/charcoal theme) ── */
+.socialLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  margin-top: 1.5rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(
+  to bottom,
+  #FFF8F1 0%,
+  #FFF8F1 10%,
+  rgb(230, 81, 0) 100%
+);
+  border: 1px solid rgba(230, 81, 0, 0.12);
+}
+
+.socialLinks a {
+  font-size: 2rem;
+  color: #E65100;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.socialLinks a:hover {
+  color: #263238;
+  transform: scale(1.18);
 }
 
 /* ── INFO SIDE ─────────────────────────────────────────────────────────────── */
@@ -467,7 +499,7 @@
 /* ── Small phone (max 600px) ──────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .heroContent h1 { font-size: 1.75rem; }
-  .heroSection { padding: 4rem 5% 3.5rem; }
+  .heroSection { padding: 2rem 5% 1.8rem; }
 
   .tilesGrid { grid-template-columns: 1fr; }
 
