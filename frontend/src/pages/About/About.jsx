@@ -58,7 +58,74 @@ function About() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          2. OUR STORY
+          2. PROPRIETORS  (shown first, as requested)
+      ════════════════════════════════════════════════════ */}
+      <section className={styles.ownersSection}>
+        <div className={styles.ownersSectionInner}>
+          <span className={styles.sectionTag}>Our Proprietors</span>
+          <h2>
+            The People Behind{' '}
+            <span className={styles.orangeText}>Pankaj Traders</span>
+          </h2>
+
+          <div className={styles.ownersGrid}>
+
+            {/* ── Jitendra Kumar — image LEFT, text RIGHT ── */}
+            <div className={styles.ownerCard}>
+              <div className={styles.ownerImageWrap}>
+                  <img src="/Jitendra.png" alt="Jitendra Kumar"
+                       className={styles.ownerImg} />
+               
+                {/* <OwnerAvatar initials="JK" /> */}
+              </div>
+              <div className={styles.ownerData}>
+                <div className={styles.nameLeft}>
+                  <h3>Jitendra Kumar</h3>
+                  <p className={styles.ownerRoleText}>Proprietor</p>
+                </div>
+                <div className={styles.ownerMsg}>
+                  <p>
+                    With over 12 years of hands-on experience in the construction
+                    materials trade, Jitendra brings deep product knowledge and an
+                    unwavering commitment to quality. His dedication to sourcing only
+                    the best materials has made Pankaj Traders a go-to name among
+                    serious builders and homeowners in Gorakhpur.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Pankaj Kumar — text LEFT, image RIGHT ── */}
+            <div className={styles.ownerCard}>
+              <div className={styles.ownerData}>
+                <div className={styles.nameRight}>
+                  <h3>Pankaj Kumar</h3>
+                  <p className={styles.ownerRoleText}>Proprietor</p>
+                </div>
+                <div className={styles.ownerMsg}>
+                  <p>
+                    The heart and name behind the shop, Pankaj Kumar has dedicated over
+                    a decade to building trusted relationships with customers and suppliers
+                    alike. His vision — to be a complete, all-in-one building solution for
+                    every customer — continues to drive the shop's growth and reputation
+                    across the region.
+                  </p>
+                </div>
+              </div>
+              <div className={styles.ownerImageWrap}>
+                <img src="/Pankaj.png" alt="Pankaj Kumar"
+                       className={styles.ownerImg} />
+               
+                {/* <OwnerAvatar initials="PK" /> */}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          3. OUR STORY  (shown second, as requested)
       ════════════════════════════════════════════════════ */}
       <section className={styles.storySection}>
         <div className={styles.storyInner}>
@@ -88,69 +155,6 @@ function About() {
               building solution. From the very first brick to the final coat of paint,
               we stand with you every step of the way.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          3. PROPRIETORS
-      ════════════════════════════════════════════════════ */}
-      <section className={styles.ownersSection}>
-        <div className={styles.ownersSectionInner}>
-          <span className={styles.sectionTag}>Our Proprietors</span>
-          <h2>
-            The People Behind{' '}
-            <span className={styles.orangeText}>Pankaj Traders</span>
-          </h2>
-
-          <div className={styles.ownersGrid}>
-
-            {/* ── Jitendra Kumar ── */}
-            <div className={styles.ownerCard}>
-              <div className={styles.ownerImageWrap}>
-                {/*
-                  ✅ TO ADD PHOTO: Replace the OwnerAvatar below with:
-                  <img src="/src/assets/owners/jitendra.jpg" alt="Jitendra Kumar"
-                       className={styles.ownerImg} />
-                */}
-                <OwnerAvatar initials="JK" />
-              </div>
-              <div className={styles.ownerInfo}>
-                <h3>Jitendra Kumar</h3>
-                <span className={styles.ownerRole}>Proprietor</span>
-                <p>
-                  With over 12 years of hands-on experience in the construction
-                  materials trade, Jitendra brings deep product knowledge and an
-                  unwavering commitment to quality. His dedication to sourcing only
-                  the best materials has made Pankaj Traders a go-to name among
-                  serious builders and homeowners in Gorakhpur.
-                </p>
-              </div>
-            </div>
-
-            {/* ── Pankaj Kumar ── */}
-            <div className={`${styles.ownerCard} ${styles.ownerCardReverse}`}>
-              <div className={styles.ownerImageWrap}>
-                {/*
-                  ✅ TO ADD PHOTO: Replace the OwnerAvatar below with:
-                  <img src="/src/assets/owners/pankaj.jpg" alt="Pankaj Kumar"
-                       className={styles.ownerImg} />
-                */}
-                <OwnerAvatar initials="PK" />
-              </div>
-              <div className={styles.ownerInfo}>
-                <h3>Pankaj Kumar</h3>
-                <span className={styles.ownerRole}>Proprietor</span>
-                <p>
-                  The heart and name behind the shop, Pankaj Kumar has dedicated over
-                  a decade to building trusted relationships with customers and suppliers
-                  alike. His vision — to be a complete, all-in-one building solution for
-                  every customer — continues to drive the shop's growth and reputation
-                  across the region.
-                </p>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

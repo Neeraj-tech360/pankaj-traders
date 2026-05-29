@@ -1,5 +1,4 @@
 import React from "react";
-import Products from "./pages/Product/Products";
 import { Routes, Route } from "react-router-dom";
 
 // Layout Components
@@ -8,10 +7,10 @@ import Footer from "./components/footer/Footer";
 
 // Page Components
 import Home from "./pages/Home/Home";
-// import Products from './pages/Products/Products';
-// import AboutUs from './pages/AboutUs';
+import Products from "./pages/Product/Products";
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
 // import Services from './pages/Services';
-// import Contact from './pages/Contact';
 // import Gallery from './pages/Gallery';
 
 function App() {
@@ -26,11 +25,10 @@ function App() {
       <main style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          
-          {/* <Route path="/about" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} /> */}
+          {/* <Route path="/services" element={<Services />} /> */}
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>

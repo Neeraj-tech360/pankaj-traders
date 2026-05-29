@@ -5,7 +5,7 @@
 ═══════════════════════════════════════════════════════════════════════════ */
 
 .aboutContainer {
-  background-color: #FFF8F1;
+  background-color: #fff8f1;
   overflow-x: hidden;
 }
 
@@ -13,8 +13,8 @@
    1. HERO SECTION
 ═══════════════════════════════════════════════════════════════════════════ */
 .heroSection {
-  background: linear-gradient(135deg, #263238 0%, #1A2327 55%, #37474F 100%);
-  padding: 5.5rem 5% 4.5rem;
+  background: linear-gradient(135deg, #263238 0%, #1a2327 55%, #37474f 100%);
+  padding: 2.8rem 5% 2.2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -22,25 +22,33 @@
 
 /* Decorative radial orange glow */
 .heroSection::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -35%;
   left: -8%;
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, rgba(230, 81, 0, 0.16) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(230, 81, 0, 0.16) 0%,
+    transparent 65%
+  );
   pointer-events: none;
 }
 
 /* Second glow on opposite side */
 .heroSection::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -30%;
   right: -5%;
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgba(255, 179, 0, 0.08) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 179, 0, 0.08) 0%,
+    transparent 65%
+  );
   pointer-events: none;
 }
 
@@ -63,12 +71,12 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #FFE0B2;
+  color: #ffe0b2;
   margin-bottom: 1.5rem;
 }
 
 .heroContent h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 3.4rem;
   font-weight: 900;
   color: #fff;
@@ -77,7 +85,7 @@
 }
 
 .heroContent p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.08rem;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.78;
@@ -90,8 +98,8 @@
 ═══════════════════════════════════════════════════════════════════════════ */
 .sectionTag {
   display: inline-block;
-  background: rgba(230, 81, 0, 0.10);
-  color: #E65100;
+  background: rgba(230, 81, 0, 0.1);
+  color: #e65100;
   border: 1px solid rgba(230, 81, 0, 0.28);
   padding: 0.32rem 1.05rem;
   border-radius: 2rem;
@@ -105,11 +113,13 @@
 /* Inverted for dark backgrounds */
 .sectionTagInverted {
   background: rgba(255, 179, 0, 0.14);
-  color: #FFB300;
+  color: #ffb300;
   border-color: rgba(255, 179, 0, 0.3);
 }
 
-.orangeText { color: #E65100; }
+.orangeText {
+  color: #e65100;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    2. OUR STORY SECTION
@@ -126,7 +136,7 @@
 }
 
 .storyInner h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.4rem;
   font-weight: 800;
   color: #263238;
@@ -139,9 +149,9 @@
 }
 
 .storyContent p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
-  color: #546E7A;
+  color: #546e7a;
   line-height: 1.9;
   margin-bottom: 1.3rem;
 }
@@ -154,8 +164,8 @@
    3. PROPRIETORS SECTION
 ═══════════════════════════════════════════════════════════════════════════ */
 .ownersSection {
-  background-color: #FFF8F1;
-  padding: 5.5rem 5%;
+  background-color: #fff8f1;
+  padding: 3.5rem 5%;
 }
 
 .ownersSectionInner {
@@ -165,7 +175,7 @@
 }
 
 .ownersSectionInner h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.4rem;
   font-weight: 800;
   color: #263238;
@@ -176,113 +186,72 @@
 .ownersGrid {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  /* no gap needed — padding on ownerCard handles spacing */
 }
 
-/* Owner card — horizontal layout */
+/* Plain flex row — NO card box, NO background, NO border, NO shadow */
 .ownerCard {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 3rem;
-  background: #fff;
-  border-radius: 1.75rem;
-  padding: 2.75rem 3.25rem;
-  box-shadow: 0 6px 32px rgba(38, 50, 56, 0.07);
-  border: 1px solid rgba(230, 81, 0, 0.07);
-  text-align: left;
-  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
-}
-
-.ownerCard:hover {
-  box-shadow: 0 18px 48px rgba(230, 81, 0, 0.11);
-  transform: translateY(-5px);
-  border-color: rgba(230, 81, 0, 0.18);
-}
-
-/* Second card: image goes to the right */
-.ownerCardReverse {
-  flex-direction: row-reverse;
+  justify-content: center;
+  padding: 1rem 1rem;
+  gap: 1.5rem;
 }
 
 .ownerImageWrap {
   flex-shrink: 0;
 }
 
-/* ── Placeholder avatar — replace with <img> when photo is ready ── */
-.ownerAvatarPlaceholder {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E65100 0%, #FF8F00 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.6rem;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 3px;
-  box-shadow: 0 10px 30px rgba(230, 81, 0, 0.32);
-  transition: transform 0.35s ease;
-}
-
-.ownerCard:hover .ownerAvatarPlaceholder {
-  transform: scale(1.05);
-}
-
-/* Real owner photo (use this when replacing placeholder) */
+/* Portrait photo — same proportions as original's 30rem height */
 .ownerImg {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(38, 50, 56, 0.18);
-  transition: transform 0.35s ease;
+  height: 20rem;
+  width: auto;
+  display: block;
 }
 
-.ownerCard:hover .ownerImg {
-  transform: scale(1.05);
+/* Text side — matches original founder-data / cofounder-data */
+.ownerData {
+  margin: 2rem;
 }
 
-.ownerInfo {
-  flex: 1;
-}
-
-.ownerInfo h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+.ownerData h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #263238;
-  margin: 0 0 0.5rem;
+  color: #e65100;
+  margin: 0 0 0.3rem;
 }
 
-.ownerRole {
-  display: inline-block;
-  background: rgba(230, 81, 0, 0.10);
-  color: #E65100;
-  border: 1px solid rgba(230, 81, 0, 0.26);
-  padding: 0.3rem 1rem;
-  border-radius: 2rem;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
-
-.ownerInfo p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.97rem;
-  color: #546E7A;
-  line-height: 1.85;
+.ownerRoleText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #90a4ae;
+  font-weight: 600;
   margin: 0;
 }
 
+.ownerMsg p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  color: #546e7a;
+  line-height: 1.85;
+  width: 100%;
+  padding: 1rem;
+}
+
+.nameLeft {
+  text-align: left;
+}
+
+.nameRight {
+  text-align: right;
+}
 /* ═══════════════════════════════════════════════════════════════════════════
    4. VALUES SECTION — dark charcoal background
 ═══════════════════════════════════════════════════════════════════════════ */
 .valuesSection {
-  background: linear-gradient(135deg, #263238 0%, #1A2327 60%, #37474F 100%);
+  background: linear-gradient(135deg, #263238 0%, #1a2327 60%, #37474f 100%);
   padding: 5.5rem 5%;
   text-align: center;
   position: relative;
@@ -291,7 +260,7 @@
 
 /* Subtle texture: diagonal grid pattern */
 .valuesSection::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
@@ -307,7 +276,7 @@
 .valuesSection h2 {
   position: relative;
   z-index: 1;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.4rem;
   font-weight: 800;
   color: #fff;
@@ -334,7 +303,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: background 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .valueCard:hover {
@@ -347,14 +319,16 @@
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #E65100 0%, #FF8F00 100%);
+  background: linear-gradient(135deg, #e65100 0%, #ff8f00 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   margin-bottom: 1.3rem;
   box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .valueCard:hover .valueIcon {
@@ -363,7 +337,7 @@
 }
 
 .valueCard h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
@@ -371,7 +345,7 @@
 }
 
 .valueCard p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.62);
   line-height: 1.78;
@@ -384,51 +358,83 @@
 
 /* ── Tablet (max 1024px) ──────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
-  .heroContent h1 { font-size: 2.8rem; }
-  .ownerInfo h3 { font-size: 1.7rem; }
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heroContent h1 {
+    font-size: 2.8rem;
+  }
+  .ownerData h3 {
+    font-size: 1.8rem;
+  }
+  .ownerAvatarPlaceholder,
+  .ownerImg {
+    height: 240px;
+    width: auto;
+  }
 }
 
 /* ── Large phone (max 768px) ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .heroContent h1 { font-size: 2.2rem; }
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
 
-  /* Stack owner cards vertically — BOTH normal and reversed */
-  .ownerCard,
-  .ownerCardReverse {
+  .ownerCard {
     flex-direction: column !important;
-    text-align: center;
-    padding: 2rem 1.75rem;
-    gap: 1.75rem;
-  }
-
-  .ownerInfo {
+    align-items: center;
+    padding: 0;
     text-align: center;
   }
-
+  .ownerImg {
+    height: 20rem;
+    width: auto;
+  }
+  .ownerData {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .ownerMsg p {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .nameLeft,
+  .nameRight {
+    text-align: center;
+  }
   .ownersSectionInner h2,
   .storyInner h2 {
     font-size: 1.9rem;
   }
 
-  .valuesSection h2 { font-size: 1.9rem; }
+  .valuesSection h2 {
+    font-size: 1.9rem;
+  }
 }
 
 /* ── Small phone (max 600px) ──────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .heroContent h1 { font-size: 1.75rem; }
-  .heroSection { padding: 4rem 5% 3.5rem; }
+  .heroContent h1 {
+    font-size: 1.75rem;
+  }
+  .heroSection {
+    padding: 2.2rem 5% 1.8rem;
+  }
 
   .ownerAvatarPlaceholder,
   .ownerImg {
-    width: 120px;
-    height: 120px;
-    font-size: 1.9rem;
+    height: 16rem;
+    width: auto;
+  }
+  .ownerData h3 {
+    font-size: 1.8rem;
   }
 
-  .ownerInfo h3 { font-size: 1.45rem; }
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
 
-  .valuesGrid { grid-template-columns: 1fr; }
-
-  .storyInner h2 { font-size: 1.65rem; }
+  .storyInner h2 {
+    font-size: 1.65rem;
+  }
 }
