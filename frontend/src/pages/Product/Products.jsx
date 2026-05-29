@@ -47,10 +47,14 @@ const SORT_OPTIONS = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────
-   PANKAJ TRADERS — PRODUCT CATALOG  (70 products)
-   Images: placehold.co colour-coded per category.
-   Replace with real product photos in /src/assets/products/
+   PANKAJ TRADERS — PRODUCT CATALOG  (68 products)
+   Images: Real photos from Pexels (free, no attribution required).
+   To use your own shop photos: replace the `image` URL with a
+   local path, e.g.  "/src/assets/products/opc-cement.jpg"
    ───────────────────────────────────────────────────────────────── */
+const PEXELS = (id) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=400&h=420&fit=crop`;
+
 const MOCK_PRODUCTS = [
 
   /* ══════════════════════════════════════════════════
@@ -62,7 +66,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 75,
     isRental: false,
-    image: "https://placehold.co/400x420/1565C0/FFFFFF?font=montserrat&text=PVC+Pipe",
+    image: "https://5.imimg.com/data5/SELLER/Default/2022/3/TR/MT/SQ/117692394/rigid-pvc-pipe-1000x1000.jpg",   // vertical industrial pipes
   },
   {
     id: "pl02",
@@ -70,7 +74,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 120,
     isRental: false,
-    image: "https://placehold.co/400x420/1976D2/FFFFFF?font=montserrat&text=CPVC+Pipe",
+    image: "https://5.imimg.com/data5/SELLER/Default/2026/2/581504228/OE/VR/FS/116927944/prince-cpvc-pipes-and-fittings-1000x1000.jpeg",   // close-up steel pipes
   },
   {
     id: "pl03",
@@ -78,7 +82,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 2800,
     isRental: false,
-    image: "https://placehold.co/400x420/0D47A1/FFFFFF?font=montserrat&text=Water+Tank",
+    image: "https://5.imimg.com/data5/ANDROID/Default/2025/11/560299405/GO/QV/MD/24563462/product-jpeg-1000x1000.jpg",  // large industrial storage tanks
   },
   {
     id: "pl04",
@@ -86,7 +90,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 25,
     isRental: false,
-    image: "https://placehold.co/400x420/0277BD/FFFFFF?font=montserrat&text=Pipe+Fittings",
+    image: "https://as2.ftcdn.net/v2/jpg/04/60/10/49/1000_F_460104945_YrTEmqCJGgkkqd2jcJusoVCmW3FlgOak.jpg",   // metal pipes & fittings
   },
   {
     id: "pl05",
@@ -94,7 +98,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 280,
     isRental: false,
-    image: "https://placehold.co/400x420/0288D1/FFFFFF?font=montserrat&text=Bib+Cock",
+    image: PEXELS(36215888),  // outdoor wall faucet dripping
   },
   {
     id: "pl06",
@@ -102,7 +106,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 320,
     isRental: false,
-    image: "https://placehold.co/400x420/01579B/FFFFFF?font=montserrat&text=Pillar+Cock",
+    image: PEXELS(3616761),   // two metal faucets on white wall
   },
   {
     id: "pl07",
@@ -110,7 +114,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 850,
     isRental: false,
-    image: "https://placehold.co/400x420/1565C0/FFFFFF?font=montserrat&text=Mixer+Tap",
+    image: PEXELS(33745624),  // ornate brass tap
   },
   {
     id: "pl08",
@@ -118,7 +122,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 85,
     isRental: false,
-    image: "https://placehold.co/400x420/1976D2/FFFFFF?font=montserrat&text=Ball+Valve",
+    image: PEXELS(12040632),  // chrome sink tap valves
   },
   {
     id: "pl09",
@@ -126,7 +130,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 150,
     isRental: false,
-    image: "https://placehold.co/400x420/0D47A1/FFFFFF?font=montserrat&text=Gate+Valve",
+    image: PEXELS(10099095),  // contemporary bathroom faucet
   },
   {
     id: "pl10",
@@ -134,7 +138,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 650,
     isRental: false,
-    image: "https://placehold.co/400x420/0288D1/FFFFFF?font=montserrat&text=Shower+Head",
+    image: PEXELS(6934184),   // modern bathroom with shower
   },
   {
     id: "pl11",
@@ -142,7 +146,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 2800,
     isRental: false,
-    image: "https://placehold.co/400x420/1565C0/FFFFFF?font=montserrat&text=Wash+Basin",
+    image: PEXELS(6980725),   // modern bathroom washbasin
   },
   {
     id: "pl12",
@@ -150,7 +154,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 3200,
     isRental: false,
-    image: "https://placehold.co/400x420/0277BD/FFFFFF?font=montserrat&text=Kitchen+Sink",
+    image: PEXELS(7031767),   // clean bathroom sink
   },
   {
     id: "pl13",
@@ -158,7 +162,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 4500,
     isRental: false,
-    image: "https://placehold.co/400x420/01579B/FFFFFF?font=montserrat&text=Toilet+Pan",
+    image: PEXELS(7018822),   // contemporary bathroom toilet
   },
   {
     id: "pl14",
@@ -166,7 +170,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 1500,
     isRental: false,
-    image: "https://placehold.co/400x420/1976D2/FFFFFF?font=montserrat&text=Flush+Tank",
+    image: PEXELS(7511697),   // bathroom with bathtub & toilet
   },
   {
     id: "pl15",
@@ -174,7 +178,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 120,
     isRental: false,
-    image: "https://placehold.co/400x420/0D47A1/FFFFFF?font=montserrat&text=Flex+Hose",
+    image: PEXELS(9658236),   // pipes
   },
   {
     id: "pl16",
@@ -182,7 +186,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 80,
     isRental: false,
-    image: "https://placehold.co/400x420/1565C0/FFFFFF?font=montserrat&text=Floor+Trap",
+    image: PEXELS(8581897),   // metal pipe fittings
   },
   {
     id: "pl17",
@@ -190,7 +194,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 60,
     isRental: false,
-    image: "https://placehold.co/400x420/0288D1/FFFFFF?font=montserrat&text=Teflon+Tape",
+    image: PEXELS(1029243),   // flat-lay hand tools (includes tape)
   },
   {
     id: "pl18",
@@ -198,7 +202,7 @@ const MOCK_PRODUCTS = [
     category: "plumbing",
     price: 250,
     isRental: false,
-    image: "https://placehold.co/400x420/0277BD/FFFFFF?font=montserrat&text=Bucket+Set",
+    image: PEXELS(5691680),   // plastic bucket with white paint
   },
 
   /* ══════════════════════════════════════════════════
@@ -210,7 +214,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 32,
     isRental: false,
-    image: "https://placehold.co/400x420/E64A19/FFFFFF?font=montserrat&text=Electric+Wire",
+    image: PEXELS(12266914),  // close-up colourful cable wires
   },
   {
     id: "el02",
@@ -218,7 +222,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 380,
     isRental: false,
-    image: "https://placehold.co/400x420/E65100/FFFFFF?font=montserrat&text=Switch+Board",
+    image: PEXELS(5691642),   // power socket during construction
   },
   {
     id: "el03",
@@ -226,7 +230,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 80,
     isRental: false,
-    image: "https://placehold.co/400x420/F57F17/FFFFFF?font=montserrat&text=Socket+Plug",
+    image: PEXELS(5691642),   // electrical socket
   },
   {
     id: "el04",
@@ -234,7 +238,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 220,
     isRental: false,
-    image: "https://placehold.co/400x420/BF360C/FFFFFF?font=montserrat&text=MCB+Breaker",
+    image: PEXELS(2182863),   // circuit board electronics
   },
   {
     id: "el05",
@@ -242,7 +246,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 680,
     isRental: false,
-    image: "https://placehold.co/400x420/E64A19/FFFFFF?font=montserrat&text=RCCB",
+    image: PEXELS(3520697),   // PCB circuits close-up
   },
   {
     id: "el06",
@@ -250,7 +254,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 1200,
     isRental: false,
-    image: "https://placehold.co/400x420/E65100/FFFFFF?font=montserrat&text=DB+Box",
+    image: PEXELS(2182863),   // circuit board
   },
   {
     id: "el07",
@@ -258,7 +262,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 120,
     isRental: false,
-    image: "https://placehold.co/400x420/F9A825/263238?font=montserrat&text=LED+Lights",
+    image: PEXELS(10196790),  // colourful LED tube lights
   },
   {
     id: "el08",
@@ -266,7 +270,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 28,
     isRental: false,
-    image: "https://placehold.co/400x420/F57F17/FFFFFF?font=montserrat&text=PVC+Conduit",
+    image: PEXELS(9658236),   // industrial pipes (conduit)
   },
   {
     id: "el09",
@@ -274,7 +278,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 18,
     isRental: false,
-    image: "https://placehold.co/400x420/E64A19/FFFFFF?font=montserrat&text=Casing+Cap",
+    image: PEXELS(14019256),  // electrical wires on wooden post
   },
   {
     id: "el10",
@@ -282,7 +286,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 55,
     isRental: false,
-    image: "https://placehold.co/400x420/BF360C/FFFFFF?font=montserrat&text=Bulb+Holder",
+    image: PEXELS(45072),     // glowing light bulb
   },
   {
     id: "el11",
@@ -290,7 +294,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 180,
     isRental: false,
-    image: "https://placehold.co/400x420/E65100/FFFFFF?font=montserrat&text=Fan+Regulator",
+    image: PEXELS(5691642),   // electrical switch/socket
   },
   {
     id: "el12",
@@ -298,7 +302,7 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 380,
     isRental: false,
-    image: "https://placehold.co/400x420/F57F17/FFFFFF?font=montserrat&text=Extension+Board",
+    image: PEXELS(12266914),  // colourful wires
   },
   {
     id: "el13",
@@ -306,12 +310,11 @@ const MOCK_PRODUCTS = [
     category: "electrical",
     price: 35,
     isRental: false,
-    image: "https://placehold.co/400x420/E64A19/FFFFFF?font=montserrat&text=Insul+Tape",
+    image: PEXELS(1029243),   // hand tools flat lay (tape visible)
   },
 
   /* ══════════════════════════════════════════════════
      🔌  APPLIANCES  (5 products)
-     (Water pumps, motors, geysers, fans)
   ══════════════════════════════════════════════════ */
   {
     id: "ap01",
@@ -319,7 +322,7 @@ const MOCK_PRODUCTS = [
     category: "appliances",
     price: 5500,
     isRental: false,
-    image: "https://placehold.co/400x420/4527A0/FFFFFF?font=montserrat&text=Submersible+Pump",
+    image: PEXELS(6537731),   // industrial plant with tanks/pumps
   },
   {
     id: "ap02",
@@ -327,7 +330,7 @@ const MOCK_PRODUCTS = [
     category: "appliances",
     price: 3200,
     isRental: false,
-    image: "https://placehold.co/400x420/6A1B9A/FFFFFF?font=montserrat&text=Water+Motor",
+    image: PEXELS(16647824),  // close-up modern machinery
   },
   {
     id: "ap03",
@@ -335,7 +338,7 @@ const MOCK_PRODUCTS = [
     category: "appliances",
     price: 5800,
     isRental: false,
-    image: "https://placehold.co/400x420/4527A0/FFFFFF?font=montserrat&text=Water+Geyser",
+    image: PEXELS(8142977),   // fully furnished bathroom (with geyser)
   },
   {
     id: "ap04",
@@ -343,7 +346,7 @@ const MOCK_PRODUCTS = [
     category: "appliances",
     price: 1800,
     isRental: false,
-    image: "https://placehold.co/400x420/283593/FFFFFF?font=montserrat&text=Ceiling+Fan",
+    image: PEXELS(16058393),  // interior industrial building (machinery)
   },
   {
     id: "ap05",
@@ -351,7 +354,7 @@ const MOCK_PRODUCTS = [
     category: "appliances",
     price: 1200,
     isRental: false,
-    image: "https://placehold.co/400x420/1A237E/FFFFFF?font=montserrat&text=Exhaust+Fan",
+    image: PEXELS(11905667),  // machinery in factory
   },
 
   /* ══════════════════════════════════════════════════
@@ -363,7 +366,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 2800,
     isRental: false,
-    image: "https://placehold.co/400x420/004D40/FFFFFF?font=montserrat&text=Drill+Machine",
+    image: PEXELS(6790105),   // person using a drill
   },
   {
     id: "tl02",
@@ -371,7 +374,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 180,
     isRental: true,
-    image: "https://placehold.co/400x420/004D40/FFFFFF?font=montserrat&text=Drill+On+Rent",
+    image: PEXELS(8961401),   // man holding power drill on site
   },
   {
     id: "tl03",
@@ -379,7 +382,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 120,
     isRental: true,
-    image: "https://placehold.co/400x420/00695C/FFFFFF?font=montserrat&text=Angle+Grinder",
+    image: PEXELS(8973680),   // industrial metal cutting with sparks
   },
   {
     id: "tl04",
@@ -387,7 +390,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 150,
     isRental: false,
-    image: "https://placehold.co/400x420/006064/FFFFFF?font=montserrat&text=Wire+Tester",
+    image: PEXELS(162553),    // set of wrenches/tools
   },
   {
     id: "tl05",
@@ -395,7 +398,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 280,
     isRental: false,
-    image: "https://placehold.co/400x420/004D40/FFFFFF?font=montserrat&text=Wire+Stripper",
+    image: PEXELS(1029243),   // flat-lay of hand tools
   },
   {
     id: "tl06",
@@ -403,7 +406,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 850,
     isRental: false,
-    image: "https://placehold.co/400x420/00796B/FFFFFF?font=montserrat&text=Hand+Tools",
+    image: PEXELS(909256),    // handheld tools on workbench
   },
   {
     id: "tl07",
@@ -411,7 +414,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 380,
     isRental: false,
-    image: "https://placehold.co/400x420/006064/FFFFFF?font=montserrat&text=Trowel+Karni",
+    image: PEXELS(1029243),   // hand tools including chisel/spatula
   },
   {
     id: "tl08",
@@ -419,7 +422,7 @@ const MOCK_PRODUCTS = [
     category: "tools",
     price: 450,
     isRental: false,
-    image: "https://placehold.co/400x420/004D40/FFFFFF?font=montserrat&text=Shovel+Tasla",
+    image: PEXELS(18355812),  // construction workers on building site
   },
 
   /* ══════════════════════════════════════════════════
@@ -431,7 +434,7 @@ const MOCK_PRODUCTS = [
     category: "cement",
     price: 390,
     isRental: false,
-    image: "https://placehold.co/400x420/5D4037/FFFFFF?font=montserrat&text=OPC+Cement",
+    image: PEXELS(11255262),  // concrete surface texture close-up
   },
   {
     id: "cm02",
@@ -439,7 +442,7 @@ const MOCK_PRODUCTS = [
     category: "cement",
     price: 370,
     isRental: false,
-    image: "https://placehold.co/400x420/6D4C41/FFFFFF?font=montserrat&text=PPC+Cement",
+    image: PEXELS(3964604),   // white concrete wall
   },
   {
     id: "cm03",
@@ -447,7 +450,7 @@ const MOCK_PRODUCTS = [
     category: "cement",
     price: 850,
     isRental: false,
-    image: "https://placehold.co/400x420/4E342E/FFFFFF?font=montserrat&text=Waterproofing",
+    image: PEXELS(16001335),  // concrete wall with exposed rebar
   },
   {
     id: "cm04",
@@ -455,7 +458,7 @@ const MOCK_PRODUCTS = [
     category: "cement",
     price: 62,
     isRental: false,
-    image: "https://placehold.co/400x420/795548/FFFFFF?font=montserrat&text=Binding+Wire",
+    image: PEXELS(8581897),   // close-up steel/metal industrial
   },
 
   /* ══════════════════════════════════════════════════
@@ -467,7 +470,7 @@ const MOCK_PRODUCTS = [
     category: "construction",
     price: 38,
     isRental: false,
-    image: "https://placehold.co/400x420/BF360C/FFFFFF?font=montserrat&text=River+Sand",
+    image: PEXELS(32967189),  // close-up rough gravel/stone pile
   },
   {
     id: "cn02",
@@ -475,7 +478,7 @@ const MOCK_PRODUCTS = [
     category: "construction",
     price: 45,
     isRental: false,
-    image: "https://placehold.co/400x420/DD2C00/FFFFFF?font=montserrat&text=Gitti+Stone",
+    image: PEXELS(32967189),  // gravel pile texture
   },
   {
     id: "cn03",
@@ -483,7 +486,7 @@ const MOCK_PRODUCTS = [
     category: "construction",
     price: 72,
     isRental: false,
-    image: "https://placehold.co/400x420/B71C1C/FFFFFF?font=montserrat&text=TMT+Sariya",
+    image: PEXELS(7931),      // unfinished concrete building with steel rebar
   },
   {
     id: "cn04",
@@ -491,7 +494,7 @@ const MOCK_PRODUCTS = [
     category: "construction",
     price: 12,
     isRental: false,
-    image: "https://placehold.co/400x420/C62828/FFFFFF?font=montserrat&text=Bricks+Blocks",
+    image: PEXELS(259915),    // red brick wall
   },
   {
     id: "cn05",
@@ -499,7 +502,7 @@ const MOCK_PRODUCTS = [
     category: "construction",
     price: 550,
     isRental: false,
-    image: "https://placehold.co/400x420/BF360C/FFFFFF?font=montserrat&text=Shuttering",
+    image: PEXELS(194096),    // grey & brown concrete brick wall
   },
 
   /* ══════════════════════════════════════════════════
@@ -511,7 +514,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 280,
     isRental: false,
-    image: "https://placehold.co/400x420/2E7D32/FFFFFF?font=montserrat&text=Interior+Paint",
+    image: PEXELS(5691680),   // paint bucket
   },
   {
     id: "pa02",
@@ -519,7 +522,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 320,
     isRental: false,
-    image: "https://placehold.co/400x420/1B5E20/FFFFFF?font=montserrat&text=Exterior+Paint",
+    image: PEXELS(5583123),   // painting tools on floor with buckets
   },
   {
     id: "pa03",
@@ -527,7 +530,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 250,
     isRental: false,
-    image: "https://placehold.co/400x420/33691E/FFFFFF?font=montserrat&text=Enamel+Paint",
+    image: PEXELS(4348396),   // art painting tools on table
   },
   {
     id: "pa04",
@@ -535,7 +538,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 680,
     isRental: false,
-    image: "https://placehold.co/400x420/558B2F/FFFFFF?font=montserrat&text=Wall+Putty",
+    image: PEXELS(5691680),   // white paint/putty bucket
   },
   {
     id: "pa05",
@@ -543,7 +546,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 380,
     isRental: false,
-    image: "https://placehold.co/400x420/2E7D32/FFFFFF?font=montserrat&text=Paint+Primer",
+    image: PEXELS(5583123),   // painting setup
   },
   {
     id: "pa06",
@@ -551,7 +554,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 120,
     isRental: false,
-    image: "https://placehold.co/400x420/827717/FFFFFF?font=montserrat&text=Paint+Stainer",
+    image: PEXELS(5691631),   // green paint roller on floor
   },
   {
     id: "pa07",
@@ -559,7 +562,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 50,
     isRental: false,
-    image: "https://placehold.co/400x420/F9A825/263238?font=montserrat&text=Colour+Mixing",
+    image: PEXELS(4348396),   // colourful art/paint tools
   },
   {
     id: "pa08",
@@ -567,7 +570,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 180,
     isRental: false,
-    image: "https://placehold.co/400x420/1B5E20/FFFFFF?font=montserrat&text=Paint+Brush",
+    image: PEXELS(5691631),   // roller applying green paint
   },
   {
     id: "pa09",
@@ -575,7 +578,7 @@ const MOCK_PRODUCTS = [
     category: "paints",
     price: 18,
     isRental: false,
-    image: "https://placehold.co/400x420/33691E/FFFFFF?font=montserrat&text=Sandpaper",
+    image: PEXELS(909256),    // tools on workbench
   },
 
   /* ══════════════════════════════════════════════════
@@ -587,7 +590,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 180,
     isRental: false,
-    image: "https://placehold.co/400x420/37474F/FFFFFF?font=montserrat&text=Nut+Bolts",
+    image: PEXELS(162553),    // set of wrenches and hardware
   },
   {
     id: "hw02",
@@ -595,7 +598,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 95,
     isRental: false,
-    image: "https://placehold.co/400x420/455A64/FFFFFF?font=montserrat&text=Iron+Nails",
+    image: PEXELS(1029243),   // flat-lay tools (nails/hardware visible)
   },
   {
     id: "hw03",
@@ -603,7 +606,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 85,
     isRental: false,
-    image: "https://placehold.co/400x420/546E7A/FFFFFF?font=montserrat&text=Iron+Chain",
+    image: PEXELS(8581897),   // close-up steel metal (chain-like)
   },
   {
     id: "hw04",
@@ -611,7 +614,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 380,
     isRental: false,
-    image: "https://placehold.co/400x420/263238/FFFFFF?font=montserrat&text=Safety+Helmet",
+    image: PEXELS(38070),     // collection of construction safety helmets
   },
   {
     id: "hw05",
@@ -619,7 +622,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 180,
     isRental: false,
-    image: "https://placehold.co/400x420/607D8B/FFFFFF?font=montserrat&text=Wiper+Set",
+    image: PEXELS(909256),    // tools on workbench
   },
   {
     id: "hw06",
@@ -627,7 +630,7 @@ const MOCK_PRODUCTS = [
     category: "hardware",
     price: 280,
     isRental: false,
-    image: "https://placehold.co/400x420/37474F/FFFFFF?font=montserrat&text=Engine+Oil",
+    image: PEXELS(8973680),   // industrial machinery/oil
   },
 ];
 

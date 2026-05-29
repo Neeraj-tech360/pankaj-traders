@@ -10,7 +10,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/Home/Home";
 // import Products from './pages/Products/Products';
 // import AboutUs from './pages/AboutUs';
-// import Services from './pages/Services';
+import Services from './pages/Services/Services';
 // import Contact from './pages/Contact';
 // import Gallery from './pages/Gallery';
 
@@ -27,10 +27,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           
-          {/* <Route path="/about" element={<AboutUs />} />
+          {/* <Route path="/about" element={<AboutUs />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} /> */}
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>

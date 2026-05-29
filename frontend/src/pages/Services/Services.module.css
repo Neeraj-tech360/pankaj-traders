@@ -1,0 +1,381 @@
+/* src/pages/Services/Services.module.css */
+/* Pankaj Traders — Services Page Styles */
+
+/* ── Global Container ─────────────────────────────────────────────────────── */
+.servicesContainer {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. HERO SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.heroSection {
+  background-color: var(--color-secondary);
+  padding: 3rem 5% 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 179, 0, 0.4);
+  color: var(--color-highlight);
+  padding: 0.45rem 1.25rem;
+  border-radius: 2rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. TRUST STRIP
+═══════════════════════════════════════════════════════════════════════════ */
+.trustStrip {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--color-primary);
+  padding: 1.5rem 5%;
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-white);
+}
+
+.trustIcon {
+  color: var(--color-highlight);
+}
+
+.trustItem div strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.trustItem div p {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHARED SECTION UTILITIES
+═══════════════════════════════════════════════════════════════════════════ */
+.sectionTag {
+  display: inline-block;
+  background: rgba(230, 81, 0, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(230, 81, 0, 0.2);
+  padding: 0.3rem 1.05rem;
+  border-radius: 2rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.sectionHeading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.sectionSubheading {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.orangeText {
+  color: var(--color-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. SERVICES GRID
+═══════════════════════════════════════════════════════════════════════════ */
+.gridSection {
+  padding: 2.5rem 5%;
+  text-align: center;
+  background-color: var(--color-white);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: var(--color-white);
+  border: 1px solid rgba(38, 50, 56, 0.1);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(38, 50, 56, 0.08);
+  border-color: var(--color-primary);
+}
+
+.serviceIconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover .serviceIconWrap {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+
+.serviceTitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.serviceDesc {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. SERVICE AREAS
+═══════════════════════════════════════════════════════════════════════════ */
+.areasSection {
+  padding: 5rem 5%;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+}
+
+.areasContent {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.areasList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.areaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-white);
+  border: 1px solid rgba(38, 50, 56, 0.15);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  transition: all 0.2s ease;
+}
+
+.areaPill:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.areaIcon {
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+.areaPill:hover .areaIcon {
+  color: var(--color-white);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. CTA / BOOKING SECTION
+═══════════════════════════════════════════════════════════════════════════ */
+.ctaSection {
+  padding: 5.5rem 5%;
+  text-align: center;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230, 81, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaSection h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.ctaSection p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background-color: #25D366; /* WhatsApp Brand Green */
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+  border: 2px solid #25D366;
+}
+
+.ctaBtnPrimary:hover {
+  background-color: #1DA851;
+  border-color: #1DA851;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+.ctaBtnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background-color: transparent;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.ctaBtnOutline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .heroTitle { font-size: 2.5rem; }
+  .sectionHeading { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+  .trustStrip { flex-direction: column; align-items: flex-start; }
+  .servicesGrid { grid-template-columns: 1fr 1fr; }
+  .ctaSection h2 { font-size: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .heroTitle { font-size: 2rem; }
+  .servicesGrid { grid-template-columns: 1fr; }
+  .ctaButtons { flex-direction: column; align-items: stretch; }
+  .ctaBtnOutline, .ctaBtnPrimary { justify-content: center; }
+  .sectionHeading { font-size: 1.8rem; }
+}
