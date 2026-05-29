@@ -1,0 +1,43 @@
+:root {
+  --color-primary:   #E65100;
+  --color-secondary: #263238;
+  --color-accent:    #FFF8F1;
+  --color-highlight: #FFB300;
+  --color-white:     #FFFFFF;
+  --color-text-dark: #1A1A1A;
+  --color-text-light: #FAFAFA;
+}
+
+body {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  margin: 0;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
