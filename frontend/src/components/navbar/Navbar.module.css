@@ -14,14 +14,25 @@
   z-index: 9999;
 }
 
-/* ── Logo ── */
+
 .logo {
-  display: flex;
-  align-items: center;
+   display: flex;
+   align-items: center;
 }
 
-.logoLink {
-  text-decoration: none;
+.logoBtn {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}
+
+.logoBtn img {
+  height: 44px;   /* adjust up/down to taste */
+  width: auto;
+  display: block;
 }
 
 .brandName {

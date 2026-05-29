@@ -16,7 +16,7 @@
 .heroSection {
   position: relative;
   height: 90vh;
-  min-height: 580px;
+  /* min-height: 580px; */
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -168,17 +168,18 @@
   border: 2px solid rgba(255, 255, 255, 0.38);
   border-radius: 14px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;      /* changed from flex-start */
   justify-content: center;
-  padding-top: 8px;
 }
 
-.scrollDot {
-  width: 5px;
-  height: 5px;
-  background: #fff;
-  border-radius: 50%;
-  animation: scrollBounce 2s ease-in-out infinite;
+.scrollArrow {
+  color: rgba(255, 255, 255, 0.85);
+  animation: scrollArrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollArrowBounce {
+  0%, 100% { transform: translateY(-4px); opacity: 0.4; }
+  50%       { transform: translateY(4px);  opacity: 1;   }
 }
 
 @keyframes scrollBounce {
@@ -307,13 +308,13 @@
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto 2.75rem;
-  
 }
 
 /* Each category card */
 .categoryCard {
   background: #ffffff;
   border: 1px solid rgba(38, 50, 56, 0.07);
+  box-shadow: 0 0 0 1px #d3d3d3;
   border-radius: 1.25rem;
   padding: 2rem 1.5rem 1.6rem;
   text-decoration: none;
@@ -464,13 +465,14 @@
 /* Feature card */
 .featureCard {
   background: #fff;
+  box-shadow: 0 0 0 1px #d3d3d3;
   padding: 2.2rem 1.6rem 1.8rem;
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(38, 50, 56, 0.055);
+  /* box-shadow: 0 4px 20px rgba(38, 50, 56, 0.055); */
   border: 1px solid rgba(38, 50, 56, 0.065);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
               box-shadow 0.4s ease,
@@ -487,7 +489,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2.4rem;
   font-weight: 900;
-  color: rgba(230, 81, 0, 0.07);
+  color: rgba(230, 81, 0, 0.316);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -737,6 +739,98 @@
 .ctaDivider {
   color: rgba(255, 255, 255, 0.25);
   font-size: 1.2rem;
+}
+
+/* --- ANIMATED 'EXPLORE PRODUCTS' BUTTON (copied from Yahora) --- */
+.learnMore {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 15rem;
+  height: 3rem;
+}
+
+.learnMore .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-radius: 1.625rem;
+}
+
+.learnMore .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #000;
+}
+
+.learnMore .circle .arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+  z-index: 1000;
+}
+
+.learnMore .circle .arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #000;
+  border-right: 0.125rem solid #000;
+  transform: rotate(45deg);
+}
+
+.learnMore .buttonText {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  padding: 0.55rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0.25rem solid #fff;
+  border-radius: 1.625rem;
+}
+
+.learnMore:hover .circle {
+  width: 100%;
+  background: #fff;
+}
+
+.learnMore:hover .arrow {
+  background: #000;
+  transform: translate(1rem, 0);
+  z-index: 1000;
+}
+
+.learnMore:hover .buttonText {
+  color: #000;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

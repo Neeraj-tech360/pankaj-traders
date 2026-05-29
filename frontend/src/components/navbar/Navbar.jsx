@@ -1,7 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import styles from "./Navbar.module.css";
+
+
+const XIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,20 +44,24 @@ function Navbar() {
         <div className={styles.mobileOverlay} onClick={closeMenu} />
       )}
 
-      {/* Brand logo / name */}
       <div className={styles.logo}>
-        <NavLink to="/" onClick={closeMenu} className={styles.logoLink}>
-          <span className={styles.brandName}>Pankaj Traders</span>
-        </NavLink>
+        <Link to="/" onClick={closeMenu}>
+          <button className={styles.logoBtn}>
+            <img src="/pt_logo.svg" alt="Yahora Logo" />
+          </button>
+        </Link>
       </div>
 
-      {/* Navigation links */}
       <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ""}`}>
-        {/* Mobile menu header */}
+        {/* Mobile Menu Header (Only visible on small screens) */}
         <div className={styles.mobileMenuHeader}>
-          <span className={styles.mobileBrandName}>Pankaj Traders</span>
-          <button className={styles.closeMenuBtn} onClick={closeMenu} aria-label="Close menu">
-            <FiX size={20} />
+          <img
+            src="/pt_logo.svg"
+            alt="Yahora"
+            className={styles.mobileLogo}
+          />
+          <button className={styles.closeMenuBtn} onClick={closeMenu}>
+            <XIcon />
           </button>
         </div>
 
