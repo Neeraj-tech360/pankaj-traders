@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   src/pages/Gallery/Gallery.module.css
+   Pankaj Traders — Gallery Page
+   Theme: Industrial Warm  |  Orange #E65100 · Charcoal #263238
+═══════════════════════════════════════════════════════════════════════════ */
+
+.galleryContainer {
+  background-color: #FFF8F1;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════════════════════════════════════ */
+.heroSection {
+  background: linear-gradient(135deg, #263238 0%, #1A2327 55%, #37474F 100%);
+  padding: 2.8rem 5% 2.2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: -6%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(230,81,0,0.16) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -4%;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(255,179,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(230,81,0,0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(230,81,0,0.42);
+  padding: 0.42rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #FFE0B2;
+  margin-bottom: 1.2rem;
+}
+
+.heroContent h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 0.9rem;
+  line-height: 1.12;
+}
+
+.heroContent p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.78;
+  margin: 0 auto;
+  max-width: 580px;
+}
+
+.heroCount {
+  display: inline-block;
+  margin-top: 1.1rem !important;
+  background: rgba(255,179,0,0.15);
+  border: 1px solid rgba(255,179,0,0.3);
+  color: #FFB300 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. IMAGE GRID
+═══════════════════════════════════════════════════════════════════════════ */
+.gridSection {
+  padding: 2.5rem 3% 5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Each grid item is a button for accessibility */
+.gridItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: #263238;
+  aspect-ratio: 1 / 1;           /* square cells */
+  display: block;
+  width: 100%;
+  transition:
+    transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.35s ease;
+}
+
+.gridItem:hover {
+  transform: scale(1.04);
+  box-shadow: 0 14px 36px rgba(38,50,56,0.22);
+  z-index: 1;
+}
+
+.gridItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease, filter 0.4s ease;
+}
+
+.gridItem:hover .gridItemImage {
+  transform: scale(1.1);
+  filter: brightness(0.45);
+}
+
+/* Hover overlay — just the zoom icon, centered */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gridItem:hover .gridOverlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  color: #fff;
+  background: rgba(230,81,0,0.9);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 18px rgba(230,81,0,0.5);
+  transition: transform 0.25s ease;
+}
+
+.gridItem:hover .zoomIcon {
+  transform: scale(1.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. LIGHTBOX MODAL
+═══════════════════════════════════════════════════════════════════════════ */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOverlay 0.2s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightboxInner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  padding: 3.2rem 1.5rem 1.5rem;
+  animation: scaleIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: -1.25rem;
+  z-index: 10;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(230,81,0,0.92);
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.closeBtn:hover {
+  background: #BF360C;
+  color: #fff;
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* react-image-gallery overrides */
+.lightboxInner :global(.image-gallery-slide img) {
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.lightboxInner :global(.image-gallery-thumbnail img) {
+  border-radius: 0.35rem;
+  height: 60px;
+  object-fit: cover;
+}
+
+.lightboxInner :global(.image-gallery-thumbnail.active),
+.lightboxInner :global(.image-gallery-thumbnail:hover) {
+  border-color: #E65100 !important;
+}
+
+.lightboxInner :global(.image-gallery-left-nav .image-gallery-svg),
+.lightboxInner :global(.image-gallery-right-nav .image-gallery-svg) {
+  height: 68px;
+  width: 34px;
+  stroke: white;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+.lightboxInner :global(.image-gallery-index) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(230,81,0,0.85);
+  border-radius: 2rem;
+  padding: 0.25rem 0.8rem;
+}
+
+.lightboxInner :global(.image-gallery-description) {
+  background: rgba(38,50,56,0.88);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Large phone */
+@media (max-width: 768px) {
+  .heroContent h1  { font-size: 2.2rem; }
+  .grid            { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+  .lightboxInner   { padding: 3rem 0.5rem 1rem; }
+  .closeBtn        { right: 0.75rem; }
+
+  .lightboxInner :global(.image-gallery-slide img) { max-height: 55vh; }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  .heroContent h1  { font-size: 1.75rem; }
+  .heroSection     { padding: 2.2rem 5% 1.8rem; }
+  .grid            { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .gridSection     { padding: 1.5rem 3% 3rem; }
+  .zoomIcon        { width: 38px; height: 38px; }
+}

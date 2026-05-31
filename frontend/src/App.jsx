@@ -11,7 +11,7 @@ import Products from "./pages/Product/Products";
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Services from './pages/Services/Services';
-// import Gallery from './pages/Gallery';
+import Gallery from './pages/Gallery/Gallery';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
-          {/* <Route path="/gallery" element={<Gallery />} /> */}
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>
