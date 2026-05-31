@@ -1,32 +1,27 @@
-You have modified the structure og the website.
-1.Please make the change so that the image and description of owner comes as it is as it was in the old project about page. Also first show The People Behind Pankaj Traders and then Our Story. Remaining things are fine in About page.
-2. In Contact page, you removed the detail-tiles social-links div:
-<div
-            className="detail-tiles social-links"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, var(--color-surface), var(--color-accent))",
-            }}
-          >
-            <a href="https://www.linkedin.com" target="_blank">
-              <i className="fa-brands fa-linkedin"></i>
-            </a>
-            {/* <a href="https://github.com/Infiniper">
-              <i className="fa-brands fa-github"></i>
-            </a> */}
-            <a href="https://x.com" target="_blank">
-              <i className="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com/sanshi_india1567" target="_blank">
-              <i className="fa-brands fa-instagram"></i>
-            </a>
-            <a href="mailto:singhkartik3108199@gmail.com">
-              <i className="fa-solid fa-envelope"></i>
-            </a>
-          </div>
+Hello dear, me and my friend wants to earn money to support our family and to save funds for our Startup Yahora.
+So we want to start doing freelancing. Please guide us through it to make money as fast as possible.
+
+1. Based on my resume, please tell us what are the things that we can do and people can pay us for that freelancing work. We will try our best to do that work.
+
+2. Also tell us how much money should we demand for the works. We live in India so people seem to pay less and we will also keep the price lower comapare to others to attarct more customer. 
+For example we are thinking to keep website charges as follow:
+Front-end only website: 7000 - 10000 rupees
+Website that require frontend + Backened: 15000- 20000 rupees
+Wedding invitation video: 500-1000 rupees 
+
+3. Please tell us what are the different ways by which we can gather and attract customer, for example one of the way we have thought is to call and ask by taking numbers from google maps.
+
+Please tell us how should we start and do the freelancing effectively. Thank you for helping us.
 
 
-We want it as it is with just color adapted for our theme.
+===========================================================
 
-3. How can I embed the follwoing location: https://maps.app.goo.gl/vLoV6umQ7eSRetGx5 
-4. Reduce the top and bottom space in the heroSection of both the contact and about page. 
+Now to do the freelancing work we are thinking of creating an attractive website where we will advertise ourselves and our past works. So we need your help in creating a beautiful website to find customers and serve them. Our base tech stack in which we are efficient is ReactJS.  So before starting please layout a plan to create a cool and powerful 3d website to attract clients. The website needs to be really astonishing so it proofs our skills and shows crdedibiity. After that we we will start working on the website. Also list the things as a checklist in sequence that we we will to do make the website. Thank you.
+
+===========================================================
+
+Now to do the freelancing work we are thinking of creating an attractive banner where we will advertise ourselves and the works we do. So we want you to create a beautiful banner to let customer know what we do and contact us. The banner needs to be really astonishing so it proofs our skills and shows crdedibiity. Also we want to put a QR on it so when they scan it, it leads them to our our website. Please create it in HTML and CSS. It can be of one or two page. Thank you.
+
+===========================================================
+
+
