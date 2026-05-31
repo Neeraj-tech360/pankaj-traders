@@ -3,11 +3,12 @@ So we want to start doing freelancing. Please guide us through it to make money 
 
 1. Based on my resume, please tell us what are the things that we can do and people can pay us for that freelancing work. We will try our best to do that work.
 
-2. Also tell us how much money should we demand for the works. We live in India so people seem to pay less and we will also keep the price lower comapare to others to attarct more customer. 
+2. Also tell us how much money should we demand for the varoius works. We live in India so people seem to pay less and we will also keep the price lower comapare to others to attract more customer. 
 For example we are thinking to keep website charges as follow:
 Front-end only website: 7000 - 10000 rupees
 Website that require frontend + Backened: 15000- 20000 rupees
-Wedding invitation video: 500-1000 rupees 
+Wedding invitation video: 500-1000 rupees,
+banner, poster, template, etc. (more works)
 
 3. Please tell us what are the different ways by which we can gather and attract customer, for example one of the way we have thought is to call and ask by taking numbers from google maps.
 
@@ -23,5 +24,4 @@ Now to do the freelancing work we are thinking of creating an attractive website
 Now to do the freelancing work we are thinking of creating an attractive banner where we will advertise ourselves and the works we do. So we want you to create a beautiful banner to let customer know what we do and contact us. The banner needs to be really astonishing so it proofs our skills and shows crdedibiity. Also we want to put a QR on it so when they scan it, it leads them to our our website. Please create it in HTML and CSS. It can be of one or two page. Thank you.
 
 ===========================================================
-
 
