@@ -274,7 +274,7 @@ function Contact() {
       {/* ═══════════════════════════════════════════════════
           3. MAP SECTION
       ════════════════════════════════════════════════════ */}
-      <section className={styles.mapSection}>
+      <section className={styles.mapSection} id="map">
         <div className={styles.mapHeader}>
           <span className={styles.sectionTag}>Find Us</span>
           <h2>Our Location</h2>

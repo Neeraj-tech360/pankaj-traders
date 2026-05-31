@@ -1,5 +1,22 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      window.scrollTo(0, 0);
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 80);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+}
 
 // Layout Components
 import Navbar from "./components/navbar/Navbar";
@@ -18,6 +35,7 @@ function App() {
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
+      <ScrollToTop />
       {/* Navigation Bar */}
       <Navbar />
 
