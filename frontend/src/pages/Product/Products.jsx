@@ -5,6 +5,7 @@ import React, {
   useCallback,
   memo,
 } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./Products.module.css";
 import {
@@ -683,14 +684,18 @@ function FilterSection({ icon, title, children, defaultOpen = false }) {
    ✗ Wishlist / My Listings / Conditions / Posting Date removed
    ══════════════════════════════════════════════════ */
 export default function Products() {
+  const [searchParams] = useSearchParams();
   const [products]  = useState(MOCK_PRODUCTS);
   const [loading, setLoading]       = useState(true);
   const [activeSort, setActiveSort] = useState("featured");
   const [searchQuery, setSearchQuery]   = useState("");
   const [showMobileFilter, setShowMobileFilter] = useState(false);
 
-  /* Filter state */
-  const [selCategories, setSelCategories] = useState([]);
+  /* Filter state — seed category from URL ?cat= param */
+  const [selCategories, setSelCategories] = useState(() => {
+    const cat = searchParams.get("cat");
+    return cat ? [cat] : [];
+  });
   const [priceRange, setPriceRange]       = useState([0, 50000]);
   const [showRentalOnly, setShowRentalOnly] = useState(false);
 
@@ -912,6 +917,16 @@ export default function Products() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className={styles.mobileDrawerHandle} />
+            <div className={styles.mobileDrawerHeader}>
+              <span className={styles.mobileDrawerTitle}>Filters</span>
+              <button
+                className={styles.mobileDrawerClose}
+                onClick={() => setShowMobileFilter(false)}
+                aria-label="Close filters"
+              >
+                <FaTimes size={15} />
+              </button>
+            </div>
             {SidebarContent}
           </div>
         </div>

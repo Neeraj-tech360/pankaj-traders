@@ -694,6 +694,41 @@
   margin: 0 auto 8px;
 }
 
+.mobileDrawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 4px;
+}
+
+.mobileDrawerTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 0.01em;
+}
+
+.mobileDrawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f2f2f2;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mobileDrawerClose:hover {
+  background: #e6e6e6;
+  color: #111;
+}
+
 /* Reset sidebar card styles inside drawer */
 .mobileDrawer .sidebar {
   border-radius: 0;

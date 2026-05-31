@@ -272,7 +272,7 @@ const Home = () => {
         </div>
         <div className={styles.statDivider} aria-hidden="true" />
         <div className={styles.statItem}>
-          <span className={styles.statNumber}>500+</span>
+          <span className={styles.statNumber}>50,000+</span>
           <span className={styles.statLabel}>Products Available</span>
         </div>
         <div className={styles.statDivider} aria-hidden="true" />
@@ -424,7 +424,7 @@ const Home = () => {
             <Link to="/products" className={styles.ctaBtnPrimary}>
               Browse Products
             </Link>
-            <Link to="/contact" className={styles.ctaBtnOutline}>
+            <Link to="/contact#map" className={styles.ctaBtnOutline}>
               <MapPin size={18} aria-hidden="true" />
               Find Us on Map
             </Link>

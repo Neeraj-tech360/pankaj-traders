@@ -13,7 +13,7 @@ const GALLERY_IMAGES = Array.from({ length: 99 }, (_, i) => ({
   src:         `/gallery/${i + 1}.jpg`,
   original:    `/gallery/${i + 1}.jpg`,
   thumbnail:   `/gallery/${i + 1}.jpg`,
-  description: `Pankaj Traders — Photo ${i + 1}`,
+  description: ``,
 }));
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────

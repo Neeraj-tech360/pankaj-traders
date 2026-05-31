@@ -142,8 +142,7 @@ const Services = () => {
             <span className={styles.sectionTag}>Coverage</span>
             <h2 className={styles.sectionHeading}>Service Areas We Cover</h2>
             <p className={styles.sectionSubheading}>
-              We provide swift service dispatch and material delivery within a
-              10 km radius of our shop in Ramnagar Karjahan (273202).
+              We provide swift service dispatch and material delivery within a radius of our shop in Ramnagar Karjahan (273202).
             </p>
           </div>
           <div className={styles.areasList}>
